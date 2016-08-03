@@ -1,45 +1,378 @@
-//
-//  GameScene.swift
-//  Flappy Pres
-//
-//  Created by Derek Dawson on 8/3/16.
-//  Copyright (c) 2016 Derek Dawson. All rights reserved.
-//
 
 import SpriteKit
+import AVFoundation
 
-class GameScene: SKScene {
+
+
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
+    
+    var jumpAmount:CGFloat = 38
+    var jumpImpulse:CGFloat!
+    
+    var bird: SKSpriteNode!
+    var ground: SKSpriteNode!
+    var background: SKSpriteNode!
+    var wallPair: SKNode = SKNode()
+    var gameStarted = false
+    var gameOver = false
+    var moveAndRemove = SKAction()
+    var timeOfDeath: NSDate! = nil
+    var scoreLabel: SKLabelNode!
+    var score = 0
+    var nominee: String!
+    var pause: SKSpriteNode!
+    var play: SKLabelNode!
+    var back: SKLabelNode!
+    var numSounds = 1
+    
+    var scoreObject: PFObject!
+    var playIndex = 0
+    
+    var nomineeSounds: [AVAudioPlayer] = []
+    var flappySounds: [AVAudioPlayer] = []
+    var diedSound: AVAudioPlayer!
+    
+    
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         
-        self.addChild(myLabel)
+        
+        
+        
+        
+        
+        
+        
+        
+        physicsWorld.contactDelegate = self
+        
+        
+        createScene()
+        jumpImpulse = jumpAmount
+        
+        let query = PFQuery(className: "Score")
+        query.whereKey("nominee", equalTo: nominee)
+        query.limit = 1
+        query.findObjectsInBackgroundWithBlock { (objects, error) in
+            if error == nil {
+                self.scoreObject = objects![0]
+            } else {
+                print(error)
+            }
+        }
+        
+        if nominee == "donald" {
+            numSounds = 7
+        }
+        
+        for i in 1...numSounds {
+            let soundFile = "\(nominee)_sound\(i)"
+            let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(soundFile)", ofType: "mp3")!)
+            let audioPlayer = try! AVAudioPlayer(contentsOfURL: sound)
+            audioPlayer.prepareToPlay()
+            nomineeSounds.append(audioPlayer)
+        }
+        playIndex = Int(CGFloat.random(min: 4, max: 10))
+        
+        
+        flappySounds.append(createAudioPlayer("coin"))
+        flappySounds.append(createAudioPlayer("hit"))
+        flappySounds.append(createAudioPlayer("sfx_wing"))
+        diedSound = createAudioPlayer("unbelievable")
+        
+    }
+    
+    func createScene() {
+        
+        pause = SKSpriteNode(imageNamed: "pause")
+        pause.size = CGSize(width: 30, height: 30)
+        pause.position = CGPoint(x: 20, y: frame.height - 20)
+        pause.zPosition = 3
+        addChild(pause)
+        
+        play = SKLabelNode()
+        play.text = "Play"
+        play.fontName = "AvenirNext-Bold";
+        play.fontColor = SKColor.greenColor()
+        play.fontSize = 35
+        play.position = CGPoint(x: frame.width / 2, y: frame.height / 2)
+        play.zPosition = 5
+        play.hidden = true
+        addChild(play)
+        
+        back = SKLabelNode()
+        back.text = "Back"
+        back.fontName = "AvenirNext-Bold";
+        back.fontColor = SKColor.blueColor()
+        back.fontSize = 35
+        back.position = CGPoint(x: frame.width / 2, y: frame.height / 2 - play.frame.height - 20)
+        back.zPosition = 5
+        back.hidden = true
+        addChild(back)
+        
+        bird = SKSpriteNode(imageNamed: nominee)
+        bird.setScale(0.08)
+        bird.position = CGPoint(x: frame.width / 2 - bird.frame.width, y: frame.height / 2)
+        bird.physicsBody = SKPhysicsBody(rectangleOfSize: bird.size)
+        bird.physicsBody?.affectedByGravity = true
+        bird.physicsBody?.dynamic = false
+        bird.physicsBody?.categoryBitMask = PhysicsCategory.Bird
+        bird.physicsBody?.collisionBitMask = PhysicsCategory.Ground | PhysicsCategory.Wall
+        bird.physicsBody?.contactTestBitMask = PhysicsCategory.Ground | PhysicsCategory.Wall
+        bird.zPosition = 4
+        bird.name = "bird"
+        self.addChild(bird)
+        
+        ground = SKSpriteNode(color: SKColor.greenColor(), size: CGSize(width: frame.width, height: bird.frame.height))
+        ground.position = CGPoint(x: frame.width / 2, y: ground.frame.height - ground.frame.height / 2)
+        ground.texture = SKTexture(imageNamed: "ground")
+        ground.physicsBody = SKPhysicsBody(rectangleOfSize: ground.size)
+        ground.physicsBody?.affectedByGravity = false
+        ground.physicsBody?.dynamic = false
+        ground.zPosition = 3
+        self.addChild(ground)
+        
+        background = SKSpriteNode(imageNamed: "background")
+        background.size = frame.size
+        background.position = CGPoint(x: frame.width / 2, y: frame.height / 2)
+        background.zPosition = 1
+        self.addChild(background)
+        
+        scoreLabel = SKLabelNode()
+        scoreLabel.text = "0"
+        scoreLabel.fontSize = 40
+        scoreLabel.position = CGPoint(x: frame.width / 2, y: frame.height - bird.frame.height)
+        scoreLabel.zPosition = 6
+        self.addChild(scoreLabel)
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
-        
-        for touch in touches {
-            let location = touch.locationInNode(self)
+        if !gameOver {
+            if !gameStarted {
+                gameStarted = true
+                bird.physicsBody?.dynamic = true
+                let spawn = SKAction.runBlock {
+                    self.createWalls()
+                }
+                
+                let delay = SKAction.waitForDuration(1.5)
+                let spawnDelay = SKAction.sequence([spawn, delay])
+                let spawnDelayForever = SKAction.repeatActionForever(spawnDelay)
+                self.runAction(spawnDelayForever)
+                
+                let distance = CGFloat(self.frame.width + bird.frame.width * 2)
+                let movePipes = SKAction.moveByX(-distance, y: 0, duration: NSTimeInterval(2.5))
+                let removePipes = SKAction.removeFromParent()
+                moveAndRemove = SKAction.sequence([movePipes, removePipes])
+                flappySounds[2].play()
+                bird.physicsBody?.velocity = CGVectorMake(0, 0)
+                bird.physicsBody?.applyImpulse(CGVectorMake(0, jumpImpulse))
+            } else {
+                if play.hidden {
+                    var pauseTouched = false
+                    for touch in touches {
+                        if pause.containsPoint(touch.locationInNode(self)) {
+                            pauseTouched = true
+                        }
+                    }
+                    if pauseTouched {
+                        play.hidden = false
+                        back.hidden = false
+                        pause.hidden = true
+                        scene?.paused = true
+                        
+                    } else {
+                        flappySounds[2].play()
+                        bird.physicsBody?.velocity = CGVectorMake(0, 0)
+                        bird.physicsBody?.applyImpulse(CGVectorMake(0, jumpImpulse))
+                    }
+                } else if pause.hidden {
+                    var playTouched = false
+                    var backTouched = false
+                    for touch in touches {
+                        if play.containsPoint(touch.locationInNode(self)) {
+                            playTouched = true
+                        } else if back.containsPoint(touch.locationInNode(self)) {
+                            backTouched = true
+                        }
+                    }
+                    if playTouched {
+                        scene?.paused = false
+                        play.hidden = true
+                        back.hidden = true
+                        pause.hidden = false
+                    } else if backTouched {
+                        goToMainMenu()
+                    }
+                }
+            }
+        } else {
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
+            var backTouched = false
+            for touch in touches {
+                if back.containsPoint(touch.locationInNode(self)) {
+                    backTouched = true
+                }
+            }
             
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+            if backTouched {
+                goToMainMenu()
+            } else {
+                let timeNow = NSDate()
+                if (timeNow.timeIntervalSinceDate(timeOfDeath) > 0.2) {
+                    gameOver = false
+                    gameStarted = false
+                    self.removeAllChildren()
+                    createScene()
+                    jumpImpulse = jumpAmount
+                    score = 0
+                }
+            }
         }
     }
-   
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+    
+    func createWalls() {
+        wallPair = SKNode()
+        wallPair.zPosition = 2
+        
+        let topWallHeight = CGFloat.random(min: bird.frame.height * 2, max: frame.height - (bird.frame.height * 3) - ground.frame.height)
+        var name = "pipe"
+        if nominee == "hillary" {
+            name = "pipe2"
+        }
+        let wallWidth = bird.frame.width * 1.5
+        let topWall = SKSpriteNode(imageNamed: name)
+        topWall.size = CGSize(width: wallWidth, height: topWallHeight)
+        topWall.position = CGPoint(x: frame.width + topWall.frame.width / 2, y: frame.height - topWallHeight / 2)
+        let bottomWall = SKSpriteNode(imageNamed: name)
+        bottomWall.size = CGSize(width: wallWidth, height: frame.height - ground.frame.height - topWallHeight - (bird.frame.height * 1.85))
+        bottomWall.position = CGPoint(x: frame.width + bottomWall.frame.width / 2, y: bottomWall.frame.height / 2)
+        let walls = [bottomWall, topWall]
+        for wall in walls {
+            wall.physicsBody = SKPhysicsBody(rectangleOfSize: wall.size)
+            wall.physicsBody?.categoryBitMask = PhysicsCategory.Wall
+            wall.physicsBody?.collisionBitMask = PhysicsCategory.Bird
+            wall.physicsBody?.contactTestBitMask = PhysicsCategory.Bird
+            wall.physicsBody?.dynamic = false
+            wall.physicsBody?.affectedByGravity = false
+            wallPair.addChild(wall)
+        }
+        
+        var iconname = "rep_icon"
+        if nominee == "hillary" {
+            iconname = "dem_icon"
+        }
+        let scoreNode = SKSpriteNode(imageNamed: iconname)
+        scoreNode.setScale(0.15)
+        scoreNode.position = CGPoint(x: self.frame.width + topWall.frame.width / 2, y: frame.height - topWallHeight - bird.frame.height * 1.5)
+        scoreNode.physicsBody = SKPhysicsBody(rectangleOfSize: scoreNode.size)
+        scoreNode.physicsBody?.affectedByGravity = false
+        scoreNode.physicsBody?.dynamic = false
+        scoreNode.physicsBody?.categoryBitMask = PhysicsCategory.Score
+        scoreNode.physicsBody?.collisionBitMask = 0
+        scoreNode.physicsBody?.contactTestBitMask = PhysicsCategory.Bird
+        wallPair.addChild(scoreNode)
+        wallPair.name = "wallPair"
+        wallPair.runAction(moveAndRemove)
+        addChild(wallPair)
     }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        let firstBody = contact.bodyA
+        let secondBody = contact.bodyB
+        
+        if firstBody.categoryBitMask == PhysicsCategory.Bird && secondBody.categoryBitMask == PhysicsCategory.Wall || firstBody.categoryBitMask == PhysicsCategory.Wall && secondBody.categoryBitMask == PhysicsCategory.Bird {
+            
+            flappySounds[1].play()
+            
+            if gameOver == false {
+                gameOver = true
+                for child in children {
+                    if child.name == "wallPair" {
+                        child.removeAllActions()
+                    }
+                }
+                self.removeAllActions()
+                createGameOverLabel()
+                back.hidden = false
+                timeOfDeath = NSDate()
+                
+                if nominee == "donald" {
+                    print("play unv")
+                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+                        self.diedSound.play()
+                    })
+                }
+                
+                if scoreObject != nil {
+                    let totalScore = scoreObject["score"] as! Int
+                    scoreObject["score"] = totalScore + self.score
+                    scoreObject.saveInBackgroundWithBlock({ (success, error) in
+                        if error == nil {
+                            print("score saved")
+                        } else {
+                            print(error)
+                        }
+                    })
+                }
+            }
+            
+            jumpImpulse = 0
+        }
+        
+        if firstBody.categoryBitMask == PhysicsCategory.Bird && secondBody.categoryBitMask == PhysicsCategory.Score || firstBody.categoryBitMask == PhysicsCategory.Score && secondBody.categoryBitMask == PhysicsCategory.Bird {
+            if firstBody.categoryBitMask == PhysicsCategory.Score {
+                firstBody.node?.removeFromParent()
+            } else {
+                secondBody.node?.removeFromParent()
+            }
+            score += 1
+            scoreLabel.text = "\(score)"
+            if score > 0 &&  score % playIndex == 0 {
+                playSound()
+                playIndex = Int(CGFloat.random(min: 4, max: 10))
+            }
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+                self.flappySounds[0].play()
+            })
+        }
+    }
+    
+    func createGameOverLabel() {
+        let gameOverLabel = SKLabelNode()
+        gameOverLabel.text = "GAME OVER"
+        gameOverLabel.fontSize = 50
+        gameOverLabel.position = CGPoint(x: frame.width / 2, y: frame.height / 2)
+        gameOverLabel.zPosition = 5
+        addChild(gameOverLabel)
+    }
+    
+    func goToMainMenu() {
+        let skView = view!
+        let menu = MenuScene(size: skView.bounds.size)
+        skView.ignoresSiblingOrder = true
+        skView.multipleTouchEnabled = true
+        menu.scaleMode = .AspectFill
+        skView.presentScene(menu)
+    }
+    
+    func playSound() {
+        let clipIndex = Int(CGFloat.random(min: 0, max: CGFloat(numSounds)))
+        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+        dispatch_async(backgroundQueue, {
+            self.nomineeSounds[clipIndex].play()
+        })
+    }
+    
+    func createAudioPlayer(file: String) -> AVAudioPlayer {
+        let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(file, ofType: "mp3")!)
+        let audioPlayer = try! AVAudioPlayer(contentsOfURL: sound)
+        audioPlayer.prepareToPlay()
+        audioPlayer.volume = 0.5
+        return audioPlayer
+    }
+    
+    
 }
