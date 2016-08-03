@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		346966241D5262CE0026FDD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966231D5262CE0026FDD0 /* AppDelegate.swift */; };
+		346966261D5262CE0026FDD0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 346966251D5262CE0026FDD0 /* GameScene.sks */; };
+		346966281D5262CE0026FDD0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966271D5262CE0026FDD0 /* GameScene.swift */; };
+		3469662A1D5262CE0026FDD0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966291D5262CE0026FDD0 /* GameViewController.swift */; };
+		3469662D1D5262CE0026FDD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3469662B1D5262CE0026FDD0 /* Main.storyboard */; };
+		3469662F1D5262CE0026FDD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3469662E1D5262CE0026FDD0 /* Assets.xcassets */; };
+		346966321D5262CE0026FDD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 346966301D5262CE0026FDD0 /* LaunchScreen.storyboard */; };
+		3469663D1D5262CE0026FDD0 /* Flappy_PresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469663C1D5262CE0026FDD0 /* Flappy_PresTests.swift */; };
+		346966481D5262CE0026FDD0 /* Flappy_PresUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966471D5262CE0026FDD0 /* Flappy_PresUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		346966391D5262CE0026FDD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 346966181D5262CE0026FDD0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3469661F1D5262CE0026FDD0;
+			remoteInfo = "Flappy Pres";
+		};
+		346966441D5262CE0026FDD0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 346966181D5262CE0026FDD0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3469661F1D5262CE0026FDD0;
+			remoteInfo = "Flappy Pres";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		346966201D5262CE0026FDD0 /* Flappy Pres.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flappy Pres.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		346966231D5262CE0026FDD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		346966251D5262CE0026FDD0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		346966271D5262CE0026FDD0 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		346966291D5262CE0026FDD0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		3469662C1D5262CE0026FDD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3469662E1D5262CE0026FDD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		346966311D5262CE0026FDD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		346966331D5262CE0026FDD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		346966381D5262CE0026FDD0 /* Flappy PresTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flappy PresTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3469663C1D5262CE0026FDD0 /* Flappy_PresTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flappy_PresTests.swift; sourceTree = "<group>"; };
+		3469663E1D5262CE0026FDD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		346966431D5262CE0026FDD0 /* Flappy PresUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flappy PresUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		346966471D5262CE0026FDD0 /* Flappy_PresUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flappy_PresUITests.swift; sourceTree = "<group>"; };
+		346966491D5262CE0026FDD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3469661D1D5262CE0026FDD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		346966351D5262CE0026FDD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		346966401D5262CE0026FDD0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		346966171D5262CE0026FDD0 = {
+			isa = PBXGroup;
+			children = (
+				346966221D5262CE0026FDD0 /* Flappy Pres */,
+				3469663B1D5262CE0026FDD0 /* Flappy PresTests */,
+				346966461D5262CE0026FDD0 /* Flappy PresUITests */,
+				346966211D5262CE0026FDD0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		346966211D5262CE0026FDD0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				346966201D5262CE0026FDD0 /* Flappy Pres.app */,
+				346966381D5262CE0026FDD0 /* Flappy PresTests.xctest */,
+				346966431D5262CE0026FDD0 /* Flappy PresUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		346966221D5262CE0026FDD0 /* Flappy Pres */ = {
+			isa = PBXGroup;
+			children = (
+				346966231D5262CE0026FDD0 /* AppDelegate.swift */,
+				346966251D5262CE0026FDD0 /* GameScene.sks */,
+				346966271D5262CE0026FDD0 /* GameScene.swift */,
+				346966291D5262CE0026FDD0 /* GameViewController.swift */,
+				3469662B1D5262CE0026FDD0 /* Main.storyboard */,
+				3469662E1D5262CE0026FDD0 /* Assets.xcassets */,
+				346966301D5262CE0026FDD0 /* LaunchScreen.storyboard */,
+				346966331D5262CE0026FDD0 /* Info.plist */,
+			);
+			path = "Flappy Pres";
+			sourceTree = "<group>";
+		};
+		3469663B1D5262CE0026FDD0 /* Flappy PresTests */ = {
+			isa = PBXGroup;
+			children = (
+				3469663C1D5262CE0026FDD0 /* Flappy_PresTests.swift */,
+				3469663E1D5262CE0026FDD0 /* Info.plist */,
+			);
+			path = "Flappy PresTests";
+			sourceTree = "<group>";
+		};
+		346966461D5262CE0026FDD0 /* Flappy PresUITests */ = {
+			isa = PBXGroup;
+			children = (
+				346966471D5262CE0026FDD0 /* Flappy_PresUITests.swift */,
+				346966491D5262CE0026FDD0 /* Info.plist */,
+			);
+			path = "Flappy PresUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3469661F1D5262CE0026FDD0 /* Flappy Pres */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3469664C1D5262CE0026FDD0 /* Build configuration list for PBXNativeTarget "Flappy Pres" */;
+			buildPhases = (
+				3469661C1D5262CE0026FDD0 /* Sources */,
+				3469661D1D5262CE0026FDD0 /* Frameworks */,
+				3469661E1D5262CE0026FDD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Flappy Pres";
+			productName = "Flappy Pres";
+			productReference = 346966201D5262CE0026FDD0 /* Flappy Pres.app */;
+			productType = "com.apple.product-type.application";
+		};
+		346966371D5262CE0026FDD0 /* Flappy PresTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3469664F1D5262CE0026FDD0 /* Build configuration list for PBXNativeTarget "Flappy PresTests" */;
+			buildPhases = (
+				346966341D5262CE0026FDD0 /* Sources */,
+				346966351D5262CE0026FDD0 /* Frameworks */,
+				346966361D5262CE0026FDD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3469663A1D5262CE0026FDD0 /* PBXTargetDependency */,
+			);
+			name = "Flappy PresTests";
+			productName = "Flappy PresTests";
+			productReference = 346966381D5262CE0026FDD0 /* Flappy PresTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		346966421D5262CE0026FDD0 /* Flappy PresUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 346966521D5262CE0026FDD0 /* Build configuration list for PBXNativeTarget "Flappy PresUITests" */;
+			buildPhases = (
+				3469663F1D5262CE0026FDD0 /* Sources */,
+				346966401D5262CE0026FDD0 /* Frameworks */,
+				346966411D5262CE0026FDD0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				346966451D5262CE0026FDD0 /* PBXTargetDependency */,
+			);
+			name = "Flappy PresUITests";
+			productName = "Flappy PresUITests";
+			productReference = 346966431D5262CE0026FDD0 /* Flappy PresUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		346966181D5262CE0026FDD0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Derek Dawson";
+				TargetAttributes = {
+					3469661F1D5262CE0026FDD0 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					346966371D5262CE0026FDD0 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 3469661F1D5262CE0026FDD0;
+					};
+					346966421D5262CE0026FDD0 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 3469661F1D5262CE0026FDD0;
+					};
+				};
+			};
+			buildConfigurationList = 3469661B1D5262CE0026FDD0 /* Build configuration list for PBXProject "Flappy Pres" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 346966171D5262CE0026FDD0;
+			productRefGroup = 346966211D5262CE0026FDD0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3469661F1D5262CE0026FDD0 /* Flappy Pres */,
+				346966371D5262CE0026FDD0 /* Flappy PresTests */,
+				346966421D5262CE0026FDD0 /* Flappy PresUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3469661E1D5262CE0026FDD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				346966261D5262CE0026FDD0 /* GameScene.sks in Resources */,
+				346966321D5262CE0026FDD0 /* LaunchScreen.storyboard in Resources */,
+				3469662F1D5262CE0026FDD0 /* Assets.xcassets in Resources */,
+				3469662D1D5262CE0026FDD0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		346966361D5262CE0026FDD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		346966411D5262CE0026FDD0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3469661C1D5262CE0026FDD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				346966281D5262CE0026FDD0 /* GameScene.swift in Sources */,
+				3469662A1D5262CE0026FDD0 /* GameViewController.swift in Sources */,
+				346966241D5262CE0026FDD0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		346966341D5262CE0026FDD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3469663D1D5262CE0026FDD0 /* Flappy_PresTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3469663F1D5262CE0026FDD0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				346966481D5262CE0026FDD0 /* Flappy_PresUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3469663A1D5262CE0026FDD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3469661F1D5262CE0026FDD0 /* Flappy Pres */;
+			targetProxy = 346966391D5262CE0026FDD0 /* PBXContainerItemProxy */;
+		};
+		346966451D5262CE0026FDD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3469661F1D5262CE0026FDD0 /* Flappy Pres */;
+			targetProxy = 346966441D5262CE0026FDD0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3469662B1D5262CE0026FDD0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3469662C1D5262CE0026FDD0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		346966301D5262CE0026FDD0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				346966311D5262CE0026FDD0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3469664A1D5262CE0026FDD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3469664B1D5262CE0026FDD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3469664D1D5262CE0026FDD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Flappy Pres/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Flappy-Pres";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3469664E1D5262CE0026FDD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Flappy Pres/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Flappy-Pres";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		346966501D5262CE0026FDD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Flappy PresTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Flappy-PresTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flappy Pres.app/Flappy Pres";
+			};
+			name = Debug;
+		};
+		346966511D5262CE0026FDD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Flappy PresTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Flappy-PresTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flappy Pres.app/Flappy Pres";
+			};
+			name = Release;
+		};
+		346966531D5262CE0026FDD0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Flappy PresUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Flappy-PresUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Flappy Pres";
+			};
+			name = Debug;
+		};
+		346966541D5262CE0026FDD0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Flappy PresUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Flappy-PresUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Flappy Pres";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3469661B1D5262CE0026FDD0 /* Build configuration list for PBXProject "Flappy Pres" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3469664A1D5262CE0026FDD0 /* Debug */,
+				3469664B1D5262CE0026FDD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3469664C1D5262CE0026FDD0 /* Build configuration list for PBXNativeTarget "Flappy Pres" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3469664D1D5262CE0026FDD0 /* Debug */,
+				3469664E1D5262CE0026FDD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3469664F1D5262CE0026FDD0 /* Build configuration list for PBXNativeTarget "Flappy PresTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				346966501D5262CE0026FDD0 /* Debug */,
+				346966511D5262CE0026FDD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		346966521D5262CE0026FDD0 /* Build configuration list for PBXNativeTarget "Flappy PresUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				346966531D5262CE0026FDD0 /* Debug */,
+				346966541D5262CE0026FDD0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 346966181D5262CE0026FDD0 /* Project object */;
+}
