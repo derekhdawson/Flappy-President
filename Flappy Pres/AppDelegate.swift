@@ -6,8 +6,9 @@
 //  Copyright © 2016 Derek Dawson. All rights reserved.
 //
 //  App ID: ca-app-pub-5214892420848108~8919704073
-//  Ad unit ID: ca-app-pub-5214892420848108/
-//
+//  Ad unit ID banner : ca-app-pub-5214892420848108/
+//  Ad unit ID interstital: ca-app-pub-5214892420848108/8132471670
+// test device: 028af437e870b654f8f26c0d88a946ed
 
 import UIKit
 import SpriteKit

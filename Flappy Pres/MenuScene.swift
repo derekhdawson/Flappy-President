@@ -1,6 +1,6 @@
 
-
 import SpriteKit
+
 
 class MenuScene: SKScene {
     
@@ -10,8 +10,11 @@ class MenuScene: SKScene {
     var donaldLabel: SKLabelNode!
     var redRect: SKSpriteNode!
     var blueRect: SKSpriteNode!
-    var timer = NSTimer()
+    var activityIndicator: UIActivityIndicatorView!
+    var timer: NSTimer!
     
+    var root: UIViewController!
+        
     override func didMoveToView(view: SKView) {
         
         let background = SKSpriteNode(imageNamed: "background")
@@ -36,9 +39,9 @@ class MenuScene: SKScene {
         
         let globalLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
         globalLabel.text = "Global Scores"
-        globalLabel.fontColor = SKColor.blackColor()
+        globalLabel.fontColor = SKColor.whiteColor()
         globalLabel.fontSize = 20
-        globalLabel.position = CGPoint(x: frame.width / 2, y: frame.height * 0.5 + 170)
+        globalLabel.position = CGPoint(x: frame.width / 2, y: frame.height * 0.50 + 155)
         globalLabel.zPosition = 2
         addChild(globalLabel)
         
@@ -52,22 +55,19 @@ class MenuScene: SKScene {
         
         
         
-        var scoreObjects: [PFObject] = []
-        let query = PFQuery(className: "Score")
-        query.addAscendingOrder("nominee")
-        query.findObjectsInBackgroundWithBlock { (objects, error) in
-            if error == nil {
-                scoreObjects = objects!
-                let dScore = scoreObjects[0]["score"] as! Double
-                let hScore = scoreObjects[1]["score"] as! Double
-                self.drawScores(dScore, hScore: hScore)
-                //                self.timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(MenuScene.updateScores), userInfo: nil, repeats: true)
-                
-            } else {
-                print(error)
-            }
-        }
+        drawScores(redraw: false)
         
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+        activityIndicator.center = CGPoint(x: frame.width / 2, y: frame.height * 0.5 - 133)
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+        
+        let wait = SKAction.waitForDuration(5.0)
+        let run = SKAction.runBlock {
+            print("redraw score")
+            self.drawScores(redraw: true)
+        }
+        globalLabel.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
         
     }
     
@@ -81,15 +81,19 @@ class MenuScene: SKScene {
         for touch in touches {
             if trump.containsPoint(touch.locationInNode(self)) {
                 menu.nominee = "donald"
+                menu.root = self.root
+                activityIndicator.stopAnimating()
                 skView.presentScene(menu)
             } else if hillary.containsPoint(touch.locationInNode(self)) {
                 menu.nominee = "hillary"
+                menu.root = self.root
+                activityIndicator.stopAnimating()
                 skView.presentScene(menu)
             }
         }
     }
     
-    func drawScores(dScore: Double, hScore: Double) {
+    func drawScores(dScore: Double, hScore: Double, redraw: Bool) {
         
         if (view == nil) {
             return
@@ -99,35 +103,41 @@ class MenuScene: SKScene {
         let dScorePercent = dScore / totalScore
         let hScorePercent = hScore / totalScore
         
-        redRect = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: view!.frame.width * 0.8 * CGFloat(dScorePercent), height: 30))
-        redRect.position = CGPoint(x: frame.width / 2 - (frame.width - redRect.frame.width) / 2 + 10, y: frame.height * 0.5 + 100 + 30 + 10)
-        redRect.zPosition = 3
+        if !redraw {
+            redRect = SKSpriteNode(color: SKColor.redColor(), size: CGSize(width: view!.frame.width * 0.8 * CGFloat(dScorePercent), height: 24))
+            blueRect = SKSpriteNode(color: SKColor.blueColor(), size: CGSize(width: view!.frame.width * 0.8 * CGFloat(hScorePercent), height: 24))
+            donaldLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
+            hillaryLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
+            
+            blueRect.zPosition = 3
+            redRect.zPosition = 3
+            donaldLabel.zPosition = 3
+            hillaryLabel.zPosition = 3
+            donaldLabel.fontSize = 20
+            donaldLabel.fontColor = SKColor.redColor()
+            hillaryLabel.fontSize = 20
+            hillaryLabel.fontColor = SKColor.blueColor()
+            addChild(donaldLabel)
+            addChild(hillaryLabel)
+            addChild(blueRect)
+            addChild(redRect)
+        }
+        if redRect == nil {
+            return
+        }
+        redRect.position = CGPoint(x: frame.width / 2 - (frame.width - redRect.frame.width) / 2 + 10, y: frame.height * 0.49 + 100 + 30)
+        blueRect.position = CGPoint(x: frame.width / 2 - (frame.width - blueRect.frame.width) / 2 + 10, y: frame.height * 0.49 + 100)
         
-        blueRect = SKSpriteNode(color: SKColor.blueColor(), size: CGSize(width: view!.frame.width * 0.8 * CGFloat(hScorePercent), height: 30))
-        blueRect.position = CGPoint(x: frame.width / 2 - (frame.width - blueRect.frame.width) / 2 + 10, y: frame.height * 0.5 + 100)
-        blueRect.zPosition = 3
+        donaldLabel.text = "\(Int(dScore))"
+        donaldLabel.position = CGPoint(x: redRect.frame.width + 40, y: frame.height * 0.49 + 100 + 30 - (donaldLabel.frame.height / 2))
         
-        donaldLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
-        donaldLabel.fontSize = 20
-        donaldLabel.fontColor = SKColor.blackColor()
-        donaldLabel.text = "\(Int(hScore))"
-        donaldLabel.position = CGPoint(x: blueRect.frame.width + 30, y: frame.height * 0.5 + 100 - (donaldLabel.frame.height / 2))
-        donaldLabel.zPosition = 3
-        addChild(donaldLabel)
+        hillaryLabel.text = "\(Int(hScore))"
+        hillaryLabel.position = CGPoint(x: blueRect.frame.width + 40, y: frame.height * 0.49 + 100 - (donaldLabel.frame.height / 2))
         
-        hillaryLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
-        hillaryLabel.text = "\(Int(dScore))"
-        hillaryLabel.fontSize = 20
-        hillaryLabel.fontColor = SKColor.blackColor()
-        hillaryLabel.position = CGPoint(x: redRect.frame.width + 30, y: frame.height * 0.5 + 100 + 30 + 10 - (donaldLabel.frame.height / 2))
-        hillaryLabel.zPosition = 3
-        addChild(hillaryLabel)
-        
-        addChild(blueRect)
-        addChild(redRect)
+        activityIndicator.stopAnimating()
     }
     
-    func getScores() {
+    func drawScores(redraw redraw: Bool) {
         var scoreObjects: [PFObject] = []
         let query = PFQuery(className: "Score")
         query.addAscendingOrder("nominee")
@@ -136,23 +146,10 @@ class MenuScene: SKScene {
                 scoreObjects = objects!
                 let dScore = scoreObjects[0]["score"] as! Double
                 let hScore = scoreObjects[1]["score"] as! Double
-                self.updateScores(hScore, dScore: dScore)
+                self.drawScores(dScore, hScore: hScore, redraw: redraw)
             } else {
                 print(error)
             }
         }
     }
-    
-    func updateScores(hScore: Double, dScore: Double) {
-        let totalScore = dScore + hScore
-        let dScorePercent = dScore / totalScore
-        let hScorePercent = hScore / totalScore
-        redRect.size = CGSize(width: view!.frame.width * 0.8 * CGFloat(dScorePercent), height: 30)
-        redRect.position = CGPoint(x: frame.width / 2 - (frame.width - redRect.frame.width) / 2 + 10, y: frame.height * 0.5 + 100 + 30 + 10)
-        blueRect.size = CGSize(width: view!.frame.width * 0.8 * CGFloat(hScorePercent), height: 30)
-        blueRect.position = CGPoint(x: frame.width / 2 - (frame.width - blueRect.frame.width) / 2 + 10, y: frame.height * 0.5 + 100)
-        donaldLabel.text = "\(Int(hScore))"
-        hillaryLabel.text = "\(Int(dScore))"
-    }
-    
 }

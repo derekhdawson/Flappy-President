@@ -18,8 +18,9 @@
 		346966481D5262CE0026FDD0 /* Flappy_PresUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966471D5262CE0026FDD0 /* Flappy_PresUITests.swift */; };
 		346966561D5263AB0026FDD0 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966551D5263AB0026FDD0 /* MenuScene.swift */; };
 		346966581D5263C00026FDD0 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966571D5263C00026FDD0 /* PhysicsCategory.swift */; };
-		34E8F21D1D5266A2003651F7 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E8F21C1D5266A2003651F7 /* GoogleMobileAds.framework */; };
-		34E8F21F1D5266E4003651F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F21E1D5266E4003651F7 /* GoogleService-Info.plist */; };
+		348B8F8A1D533C9A000C2360 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 348B8F891D533C9A000C2360 /* GoogleService-Info.plist */; };
+		348B8F8C1D53B45A000C2360 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348B8F8B1D53B45A000C2360 /* Social.framework */; };
+		348B8F8E1D53EB2A000C2360 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348B8F8D1D53EB2A000C2360 /* GoogleMobileAds.framework */; };
 		34E8F2301D52684F003651F7 /* coin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2221D52684F003651F7 /* coin.mp3 */; };
 		34E8F2311D52684F003651F7 /* hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2231D52684F003651F7 /* hit.mp3 */; };
 		34E8F2321D52684F003651F7 /* sfx_swooshing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2241D52684F003651F7 /* sfx_swooshing.mp3 */; };
@@ -73,9 +74,10 @@
 		346966491D5262CE0026FDD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		346966551D5263AB0026FDD0 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		346966571D5263C00026FDD0 /* PhysicsCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
+		348B8F891D533C9A000C2360 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		348B8F8B1D53B45A000C2360 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		348B8F8D1D53EB2A000C2360 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		34E8F21B1D526538003651F7 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		34E8F21C1D5266A2003651F7 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
-		34E8F21E1D5266E4003651F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34E8F2221D52684F003651F7 /* coin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin.mp3; sourceTree = "<group>"; };
 		34E8F2231D52684F003651F7 /* hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit.mp3; sourceTree = "<group>"; };
 		34E8F2241D52684F003651F7 /* sfx_swooshing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_swooshing.mp3; sourceTree = "<group>"; };
@@ -97,7 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34E8F21D1D5266A2003651F7 /* GoogleMobileAds.framework in Frameworks */,
+				348B8F8E1D53EB2A000C2360 /* GoogleMobileAds.framework in Frameworks */,
+				348B8F8C1D53B45A000C2360 /* Social.framework in Frameworks */,
 				6B81ADD1BB9688EF22AAE9EF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +125,7 @@
 		037E442947D77886450B041B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				348B8F8B1D53B45A000C2360 /* Social.framework */,
 				4FA8AB4C0792BE36F271C9D0 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -152,8 +156,8 @@
 		346966221D5262CE0026FDD0 /* Flappy Pres */ = {
 			isa = PBXGroup;
 			children = (
-				34E8F21E1D5266E4003651F7 /* GoogleService-Info.plist */,
-				34E8F21C1D5266A2003651F7 /* GoogleMobileAds.framework */,
+				348B8F8D1D53EB2A000C2360 /* GoogleMobileAds.framework */,
+				348B8F891D533C9A000C2360 /* GoogleService-Info.plist */,
 				346966551D5263AB0026FDD0 /* MenuScene.swift */,
 				346966571D5263C00026FDD0 /* PhysicsCategory.swift */,
 				346966231D5262CE0026FDD0 /* AppDelegate.swift */,
@@ -359,8 +363,8 @@
 				34E8F2311D52684F003651F7 /* hit.mp3 in Resources */,
 				346966261D5262CE0026FDD0 /* GameScene.sks in Resources */,
 				34E8F23D1D526861003651F7 /* unbelievable.mp3 in Resources */,
+				348B8F8A1D533C9A000C2360 /* GoogleService-Info.plist in Resources */,
 				346966321D5262CE0026FDD0 /* LaunchScreen.storyboard in Resources */,
-				34E8F21F1D5266E4003651F7 /* GoogleService-Info.plist in Resources */,
 				3469662F1D5262CE0026FDD0 /* Assets.xcassets in Resources */,
 				3469662D1D5262CE0026FDD0 /* Main.storyboard in Resources */,
 				34E8F2371D52684F003651F7 /* donald_sound3.mp3 in Resources */,
@@ -589,13 +593,47 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flappy",
 					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
 				);
 				INFOPLIST_FILE = "Flappy Pres/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Bolts\"",
+					"-l\"Parse\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"Social\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flappy-president";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/derekdawson/Desktop/Flappy Pres/Flappy Pres/Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/derekdawson/Documents/flappy bird/Flappy Pres/Flappy Pres/Header.h";
 			};
 			name = Debug;
 		};
@@ -608,13 +646,47 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flappy",
 					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
 				);
 				INFOPLIST_FILE = "Flappy Pres/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"Bolts\"",
+					"-l\"Parse\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AudioToolbox\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-weak_framework",
+					"\"Accounts\"",
+					"-weak_framework",
+					"\"Social\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flappy-president";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/derekdawson/Desktop/Flappy Pres/Flappy Pres/Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/derekdawson/Documents/flappy bird/Flappy Pres/Flappy Pres/Header.h";
 			};
 			name = Release;
 		};

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>220706641725-3lnlmfi16oheekqlefgob0curosqqn00.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.220706641725-3lnlmfi16oheekqlefgob0curosqqn00</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCEGQK7TlW2bqBOPkaibdtFSf8VFRMLmOs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>220706641725</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.flappy-president</string>
+	<key>PROJECT_ID</key>
+	<string>admob-app-id-8919704073</string>
+	<key>STORAGE_BUCKET</key>
+	<string>admob-app-id-8919704073.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:220706641725:ios:886705eeb4732e48</string>
+	<key>DATABASE_URL</key>
+	<string>https://admob-app-id-8919704073.firebaseio.com</string>
+</dict>
+</plist>

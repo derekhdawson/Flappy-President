@@ -7,6 +7,7 @@ import GoogleMobileAds
 class GameViewController: UIViewController, GADBannerViewDelegate {
     
     var adBannerView: GADBannerView!
+    var interstitial: GADInterstitial!
     static var scenes: [SKScene] = []
     
     override func viewDidLoad() {
@@ -15,6 +16,7 @@ class GameViewController: UIViewController, GADBannerViewDelegate {
         let skView = self.view as! SKView
         
         let menu = MenuScene(size: skView.bounds.size)
+        menu.root = self
         
         print(skView.bounds.size)
         
@@ -59,5 +61,12 @@ class GameViewController: UIViewController, GADBannerViewDelegate {
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func createAndLoadInterstitial() {
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-5214892420848108/8132471670")
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID, "028af437e870b654f8f26c0d88a946ed"]
+        interstitial.loadRequest(request)
     }
 }

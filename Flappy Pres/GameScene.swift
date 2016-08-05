@@ -1,11 +1,12 @@
 
 import SpriteKit
 import AVFoundation
+import GoogleMobileAds
+import Social
 
 
 
-
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
     
     var jumpAmount:CGFloat = 38
     var jumpImpulse:CGFloat!
@@ -33,18 +34,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var flappySounds: [AVAudioPlayer] = []
     var diedSound: AVAudioPlayer!
     
+    var interstitial: GADInterstitial!
+    
+    var root: UIViewController!
+    var rounds = 0
+    
+    var facebook: SKSpriteNode!
+    var twitter: SKSpriteNode!
+
     
     override func didMoveToView(view: SKView) {
         
-        
-        
-        
-        
-        
-        
-        
+        interstitial = createAndLoadInterstitial()
         
         physicsWorld.contactDelegate = self
+//        view.showsPhysics = true
         
         
         createScene()
@@ -105,7 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         back.fontName = "AvenirNext-Bold";
         back.fontColor = SKColor.blueColor()
         back.fontSize = 35
-        back.position = CGPoint(x: frame.width / 2, y: frame.height / 2 - play.frame.height - 20)
+        back.position = CGPoint(x: frame.width / 2, y: frame.height / 2 - play.frame.height - 25)
         back.zPosition = 5
         back.hidden = true
         addChild(back)
@@ -129,10 +133,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ground.physicsBody = SKPhysicsBody(rectangleOfSize: ground.size)
         ground.physicsBody?.affectedByGravity = false
         ground.physicsBody?.dynamic = false
+
         ground.zPosition = 3
         self.addChild(ground)
         
-        background = SKSpriteNode(imageNamed: "background")
+        var backgroundName = "background"
+        if nominee == "hillary" {
+            backgroundName = "hillary_background"
+        }
+        
+        background = SKSpriteNode(imageNamed: backgroundName)
         background.size = frame.size
         background.position = CGPoint(x: frame.width / 2, y: frame.height / 2)
         background.zPosition = 1
@@ -141,6 +151,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel = SKLabelNode()
         scoreLabel.text = "0"
         scoreLabel.fontSize = 40
+        scoreLabel.fontName = "AvenirNext-Bold";
         scoreLabel.position = CGPoint(x: frame.width / 2, y: frame.height - bird.frame.height)
         scoreLabel.zPosition = 6
         self.addChild(scoreLabel)
@@ -150,6 +161,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if !gameOver {
             if !gameStarted {
+                rounds += 1
                 gameStarted = true
                 bird.physicsBody?.dynamic = true
                 let spawn = SKAction.runBlock {
@@ -208,15 +220,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         } else {
-            
             var backTouched = false
+            var fbTouched = false
+            var twitterTouched = false
             for touch in touches {
                 if back.containsPoint(touch.locationInNode(self)) {
                     backTouched = true
                 }
+                if facebook.containsPoint(touch.locationInNode(self)) {
+                    fbTouched = true
+                }
+                if twitter.containsPoint(touch.locationInNode(self)) {
+                    twitterTouched = true
+                }
             }
             
-            if backTouched {
+            if fbTouched {
+                postToFacebook()
+            } else if twitterTouched {
+                postToTwitter()
+            } else if backTouched {
                 goToMainMenu()
             } else {
                 let timeNow = NSDate()
@@ -236,7 +259,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         wallPair = SKNode()
         wallPair.zPosition = 2
         
-        let topWallHeight = CGFloat.random(min: bird.frame.height * 2, max: frame.height - (bird.frame.height * 3) - ground.frame.height)
+        let topWallHeight = CGFloat.random(min: bird.frame.height, max: frame.height - (bird.frame.height * 3) - ground.frame.height)
         var name = "pipe"
         if nominee == "hillary" {
             name = "pipe2"
@@ -282,11 +305,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let firstBody = contact.bodyA
         let secondBody = contact.bodyB
         
+        // GAME OVER
         if firstBody.categoryBitMask == PhysicsCategory.Bird && secondBody.categoryBitMask == PhysicsCategory.Wall || firstBody.categoryBitMask == PhysicsCategory.Wall && secondBody.categoryBitMask == PhysicsCategory.Bird {
-            
-            flappySounds[1].play()
+
             
             if gameOver == false {
+                bird.physicsBody?.friction = 0.5
+                bird.physicsBody?.restitution = 0.2
+                bird.physicsBody?.applyImpulse(CGVector(dx: CGFloat.random(min: 2, max: 6), dy: CGFloat.random(min: 0.2, max: 3)))
+                flappySounds[1].play()
                 gameOver = true
                 for child in children {
                     if child.name == "wallPair" {
@@ -299,7 +326,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 timeOfDeath = NSDate()
                 
                 if nominee == "donald" {
-                    print("play unv")
                     dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
                         self.diedSound.play()
                     })
@@ -316,9 +342,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         }
                     })
                 }
+                
+                let userDefaults = NSUserDefaults.standardUserDefaults()
+                let num = userDefaults.integerForKey("highscore")
+                if score > num {
+                    print("a - \(score) \(num)")
+                    userDefaults.setInteger(score, forKey: "highscore")
+                    createHighScoreLabel(score, newScore: true)
+                } else {
+                    print("b - \(score) \(num)")
+                    createHighScoreLabel(num, newScore: false)
+                }
+                jumpImpulse = 0
+                for sound in nomineeSounds {
+                    if sound.playing {
+                        sound.stop()
+                    }
+                }
+                if rounds % 5 == 0 {
+                    if interstitial.isReady {
+                        interstitial.presentFromRootViewController(self.root)
+                    }
+                }
             }
             
-            jumpImpulse = 0
+            createSocialButtons()
+        
         }
         
         if firstBody.categoryBitMask == PhysicsCategory.Bird && secondBody.categoryBitMask == PhysicsCategory.Score || firstBody.categoryBitMask == PhysicsCategory.Score && secondBody.categoryBitMask == PhysicsCategory.Bird {
@@ -334,6 +383,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 playIndex = Int(CGFloat.random(min: 4, max: 10))
             }
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+                for sound in self.nomineeSounds {
+                    if sound.playing {
+                        sound.stop()
+                    }
+                }
                 self.flappySounds[0].play()
             })
         }
@@ -343,9 +397,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let gameOverLabel = SKLabelNode()
         gameOverLabel.text = "GAME OVER"
         gameOverLabel.fontSize = 50
-        gameOverLabel.position = CGPoint(x: frame.width / 2, y: frame.height / 2)
+        gameOverLabel.fontColor = SKColor.redColor()
+        gameOverLabel.position = CGPoint(x: frame.width / 2, y: frame.height / 2 + 25)
         gameOverLabel.zPosition = 5
+        gameOverLabel.fontName = "AvenirNext-Bold";
         addChild(gameOverLabel)
+    }
+    
+    func createHighScoreLabel(highscore: Int, newScore: Bool) {
+        let highScoreLabel = SKLabelNode()
+        highScoreLabel.text = "Highscore: \(highscore)"
+        highScoreLabel.fontSize = 28
+        highScoreLabel.fontColor = SKColor.whiteColor()
+        highScoreLabel.position = CGPoint(x: frame.width / 2, y: frame.height / 2 - 15)
+        highScoreLabel.zPosition = 5
+        highScoreLabel.fontName = "AvenirNext-Bold";
+        if newScore {
+            let wait = SKAction.waitForDuration(0.5)
+            let on = SKAction.runBlock {
+                highScoreLabel.hidden = false
+            }
+            let off = SKAction.runBlock {
+                highScoreLabel.hidden = true
+            }
+            highScoreLabel.runAction(SKAction.repeatActionForever(SKAction.sequence([on, wait, off, wait])))
+        }
+        addChild(highScoreLabel)
     }
     
     func goToMainMenu() {
@@ -354,6 +431,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         skView.ignoresSiblingOrder = true
         skView.multipleTouchEnabled = true
         menu.scaleMode = .AspectFill
+        menu.root = self.root
         skView.presentScene(menu)
     }
     
@@ -372,6 +450,48 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         audioPlayer.prepareToPlay()
         audioPlayer.volume = 0.5
         return audioPlayer
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        interstitial.delegate = self
+        let request = GADRequest()
+//        request.testDevices = [kGADSimulatorID, "028af437e870b654f8f26c0d88a946ed"]
+        interstitial.loadRequest(request)
+        return interstitial
+    }
+    
+    func createSocialButtons() {
+        facebook = SKSpriteNode(imageNamed: "facebook")
+        facebook.size = CGSize(width: 35, height: 35)
+        facebook.position = CGPoint(x: frame.width / 2 - 35, y: ground.frame.height + 22)
+        facebook.zPosition = 5
+        addChild(facebook)
+        
+        twitter = SKSpriteNode(imageNamed: "twitter")
+        twitter.size = CGSize(width: 35, height: 35)
+        twitter.position = CGPoint(x: frame.width / 2 + 35, y: ground.frame.height + 22)
+        twitter.zPosition = 5
+        addChild(twitter)
+    }
+    
+    func interstitialDidDismissScreen(ad: GADInterstitial!) {
+        interstitial = createAndLoadInterstitial()
+    }
+    
+    func postToFacebook() {
+        let shareToFacebook = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+//        let image = UIImage(named: "donald")
+//        shareToFacebook.addImage(image)
+        shareToFacebook.setInitialText("I just got \(score) with Donald Trump on Flappy President!")
+//        let url = NSURL(fileURLWithPath: "http://nba.com")
+//        shareToFacebook.addURL(url)
+        root.presentViewController(shareToFacebook, animated: false, completion: nil)
+    }
+    
+    func postToTwitter() {
+        let shareToTwitter = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        root.presentViewController(shareToTwitter, animated: false, completion: nil)
     }
     
     
