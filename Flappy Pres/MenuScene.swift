@@ -23,12 +23,10 @@ class MenuScene: SKScene {
         background.zPosition = 0
         addChild(background)
         
-        trump = SKSpriteNode(imageNamed: "donald")
-        hillary = SKSpriteNode(imageNamed: "hillary")
+        trump = SKSpriteNode(imageNamed: "big_donald")
+        hillary = SKSpriteNode(imageNamed: "big_hillary")
         
-        trump.setScale(0.15)
         trump.position = CGPoint(x: frame.width / 4, y: frame.height * 0.5)
-        hillary.setScale(0.15)
         hillary.position = CGPoint(x: frame.width / 4 * 3, y: frame.height * 0.5)
         
         addChild(trump)

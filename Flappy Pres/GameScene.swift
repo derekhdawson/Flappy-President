@@ -37,7 +37,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
     var interstitial: GADInterstitial!
     
     var root: UIViewController!
-    var rounds = 0
     
     var facebook: SKSpriteNode!
     var twitter: SKSpriteNode!
@@ -114,8 +113,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         back.hidden = true
         addChild(back)
         
-        bird = SKSpriteNode(imageNamed: nominee)
-        bird.setScale(0.08)
+        let texture = SKTexture(imageNamed: "small_\(nominee)")
+        texture.filteringMode = .Nearest
+        bird = SKSpriteNode(texture: texture)
+        
         bird.position = CGPoint(x: frame.width / 2 - bird.frame.width, y: frame.height / 2)
         bird.physicsBody = SKPhysicsBody(rectangleOfSize: bird.size)
         bird.physicsBody?.affectedByGravity = true
@@ -137,12 +138,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         ground.zPosition = 3
         self.addChild(ground)
         
-        var backgroundName = "background"
-        if nominee == "hillary" {
-            backgroundName = "hillary_background"
-        }
-        
-        background = SKSpriteNode(imageNamed: backgroundName)
+        background = SKSpriteNode(imageNamed: "\(nominee)_background")
         background.size = frame.size
         background.position = CGPoint(x: frame.width / 2, y: frame.height / 2)
         background.zPosition = 1
@@ -161,7 +157,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if !gameOver {
             if !gameStarted {
-                rounds += 1
+                GameViewController.rounds += 1
                 gameStarted = true
                 bird.physicsBody?.dynamic = true
                 let spawn = SKAction.runBlock {
@@ -177,7 +173,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                 let movePipes = SKAction.moveByX(-distance, y: 0, duration: NSTimeInterval(2.5))
                 let removePipes = SKAction.removeFromParent()
                 moveAndRemove = SKAction.sequence([movePipes, removePipes])
-                flappySounds[2].play()
+                playFlappyJumpSound()
                 bird.physicsBody?.velocity = CGVectorMake(0, 0)
                 bird.physicsBody?.applyImpulse(CGVectorMake(0, jumpImpulse))
             } else {
@@ -305,15 +301,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         let firstBody = contact.bodyA
         let secondBody = contact.bodyB
         
+        
+        if firstBody.categoryBitMask == PhysicsCategory.Bird && secondBody.categoryBitMask == PhysicsCategory.Score || firstBody.categoryBitMask == PhysicsCategory.Score && secondBody.categoryBitMask == PhysicsCategory.Bird {
+            if firstBody.categoryBitMask == PhysicsCategory.Score {
+                firstBody.node?.removeFromParent()
+            } else {
+                secondBody.node?.removeFromParent()
+            }
+            score += 1
+            scoreLabel.text = "\(score)"
+            playFlappyCoinSound()
+            if score > 0 &&  score % playIndex == 0 {
+                dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+                    for sound in self.nomineeSounds {
+                        if sound.playing {
+                            sound.stop()
+                        }
+                    }
+                    let clipIndex = Int(CGFloat.random(min: 0, max: CGFloat(self.numSounds)))
+                    self.nomineeSounds[clipIndex].play()
+                })
+            }
+        }
+        
         // GAME OVER
         if firstBody.categoryBitMask == PhysicsCategory.Bird && secondBody.categoryBitMask == PhysicsCategory.Wall || firstBody.categoryBitMask == PhysicsCategory.Wall && secondBody.categoryBitMask == PhysicsCategory.Bird {
-
+            
             
             if gameOver == false {
                 bird.physicsBody?.friction = 0.5
                 bird.physicsBody?.restitution = 0.2
                 bird.physicsBody?.applyImpulse(CGVector(dx: CGFloat.random(min: 2, max: 6), dy: CGFloat.random(min: 0.2, max: 3)))
-                flappySounds[1].play()
+                playFlappyDiedSound()
                 gameOver = true
                 for child in children {
                     if child.name == "wallPair" {
@@ -359,7 +378,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                         sound.stop()
                     }
                 }
-                if rounds % 5 == 0 {
+                if GameViewController.rounds % 5 == 0 {
                     if interstitial.isReady {
                         interstitial.presentFromRootViewController(self.root)
                     }
@@ -367,29 +386,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
             }
             
             createSocialButtons()
-        
-        }
-        
-        if firstBody.categoryBitMask == PhysicsCategory.Bird && secondBody.categoryBitMask == PhysicsCategory.Score || firstBody.categoryBitMask == PhysicsCategory.Score && secondBody.categoryBitMask == PhysicsCategory.Bird {
-            if firstBody.categoryBitMask == PhysicsCategory.Score {
-                firstBody.node?.removeFromParent()
-            } else {
-                secondBody.node?.removeFromParent()
-            }
-            score += 1
-            scoreLabel.text = "\(score)"
-            if score > 0 &&  score % playIndex == 0 {
-                playSound()
-                playIndex = Int(CGFloat.random(min: 4, max: 10))
-            }
-            dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
-                for sound in self.nomineeSounds {
-                    if sound.playing {
-                        sound.stop()
-                    }
-                }
-                self.flappySounds[0].play()
-            })
+            
         }
     }
     
@@ -433,15 +430,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         menu.scaleMode = .AspectFill
         menu.root = self.root
         skView.presentScene(menu)
-    }
-    
-    func playSound() {
-        let clipIndex = Int(CGFloat.random(min: 0, max: CGFloat(numSounds)))
-        let qualityOfServiceClass = QOS_CLASS_BACKGROUND
-        let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
-        dispatch_async(backgroundQueue, {
-            self.nomineeSounds[clipIndex].play()
-        })
     }
     
     func createAudioPlayer(file: String) -> AVAudioPlayer {
@@ -493,6 +481,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         let shareToTwitter = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
         root.presentViewController(shareToTwitter, animated: false, completion: nil)
     }
+    
+    func playFlappyCoinSound() {
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+            self.flappySounds[0].play()
+        })
+    }
+    
+    func playFlappyDiedSound() {
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+            self.flappySounds[1].play()
+        })
+    }
+    
+    func playFlappyJumpSound() {
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+            self.flappySounds[2].play()
+        })
+    }
+    
     
     
 }

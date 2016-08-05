@@ -8,7 +8,8 @@ class GameViewController: UIViewController, GADBannerViewDelegate {
     
     var adBannerView: GADBannerView!
     var interstitial: GADInterstitial!
-    static var scenes: [SKScene] = []
+    
+    static var rounds = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
