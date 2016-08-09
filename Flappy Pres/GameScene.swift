@@ -25,14 +25,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
     var pause: SKSpriteNode!
     var play: SKLabelNode!
     var back: SKLabelNode!
-    var numSounds = 1
+    var numNomineeSounds = 0
+    var numNomineeDeathSounds = 0
     
     var scoreObject: PFObject!
     var playIndex = 0
     
     var nomineeSounds: [AVAudioPlayer] = []
+    var nomineeDeathSound: [AVAudioPlayer] = []
     var flappySounds: [AVAudioPlayer] = []
-    var diedSound: AVAudioPlayer!
     
     var interstitial: GADInterstitial!
     
@@ -53,35 +54,54 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         createScene()
         jumpImpulse = jumpAmount
         
-        let query = PFQuery(className: "Score")
-        query.whereKey("nominee", equalTo: nominee)
-        query.limit = 1
-        query.findObjectsInBackgroundWithBlock { (objects, error) in
-            if error == nil {
-                self.scoreObject = objects![0]
-            } else {
-                print(error)
+        
+        if Reachability.isConnectedToNetwork() {
+            let query = PFQuery(className: "Score")
+            query.whereKey("nominee", equalTo: nominee)
+            query.limit = 1
+            query.findObjectsInBackgroundWithBlock { (objects, error) in
+                if error == nil {
+                    self.scoreObject = objects![0]
+                } else {
+                    print(error)
+                }
             }
         }
         
         if nominee == "donald" {
-            numSounds = 7
+            numNomineeSounds = 8
+            numNomineeDeathSounds = 4
+        } else {
+            numNomineeSounds = 6
+            numNomineeDeathSounds = 4
         }
         
-        for i in 1...numSounds {
+        for i in 1...numNomineeSounds {
             let soundFile = "\(nominee)_sound\(i)"
-            let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(soundFile)", ofType: "mp3")!)
+            let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(soundFile)", ofType: "wav")!)
             let audioPlayer = try! AVAudioPlayer(contentsOfURL: sound)
             audioPlayer.prepareToPlay()
             nomineeSounds.append(audioPlayer)
         }
-        playIndex = Int(CGFloat.random(min: 4, max: 10))
         
+        
+        if numNomineeDeathSounds > 0 {
+            for i in 1...numNomineeDeathSounds {
+                let soundFile = "\(nominee)_sound_death\(i)"
+                let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(soundFile)", ofType: "wav")!)
+                let audioPlayer = try! AVAudioPlayer(contentsOfURL: sound)
+                audioPlayer.prepareToPlay()
+                nomineeDeathSound.append(audioPlayer)
+            }
+        }
+        
+        
+        
+        playIndex = Int(CGFloat.random(min: 4, max: 10))
         
         flappySounds.append(createAudioPlayer("coin"))
         flappySounds.append(createAudioPlayer("hit"))
         flappySounds.append(createAudioPlayer("sfx_wing"))
-        diedSound = createAudioPlayer("unbelievable")
         
     }
     
@@ -128,9 +148,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         bird.name = "bird"
         self.addChild(bird)
         
-        ground = SKSpriteNode(color: SKColor.greenColor(), size: CGSize(width: frame.width, height: bird.frame.height))
+        ground = SKSpriteNode()
+        ground.size = CGSize(width: frame.width, height: bird.frame.height)
         ground.position = CGPoint(x: frame.width / 2, y: ground.frame.height - ground.frame.height / 2)
-        ground.texture = SKTexture(imageNamed: "ground")
         ground.physicsBody = SKPhysicsBody(rectangleOfSize: ground.size)
         ground.physicsBody?.affectedByGravity = false
         ground.physicsBody?.dynamic = false
@@ -256,17 +276,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         wallPair.zPosition = 2
         
         let topWallHeight = CGFloat.random(min: bird.frame.height, max: frame.height - (bird.frame.height * 3) - ground.frame.height)
-        var name = "pipe"
-        if nominee == "hillary" {
-            name = "pipe2"
-        }
         let wallWidth = bird.frame.width * 1.5
-        let topWall = SKSpriteNode(imageNamed: name)
+        let topWall = SKSpriteNode()
         topWall.size = CGSize(width: wallWidth, height: topWallHeight)
         topWall.position = CGPoint(x: frame.width + topWall.frame.width / 2, y: frame.height - topWallHeight / 2)
-        let bottomWall = SKSpriteNode(imageNamed: name)
+        
+        topWall.texture = SKTexture(rect: CGRect(x: 0, y: 0, width: 1, height: topWall.size.height / frame.size.height), inTexture: SKTexture(imageNamed: "\(nominee)_pipe"))
+        
+        
+        let bottomWall = SKSpriteNode()
         bottomWall.size = CGSize(width: wallWidth, height: frame.height - ground.frame.height - topWallHeight - (bird.frame.height * 1.85))
         bottomWall.position = CGPoint(x: frame.width + bottomWall.frame.width / 2, y: bottomWall.frame.height / 2)
+        
+        bottomWall.texture = SKTexture(rect: CGRect(x: 0, y: 0, width: 1, height: bottomWall.size.height / frame.size.height), inTexture: SKTexture(imageNamed: "\(nominee)_pipe"))
+        
+        
         let walls = [bottomWall, topWall]
         for wall in walls {
             wall.physicsBody = SKPhysicsBody(rectangleOfSize: wall.size)
@@ -318,7 +342,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                             sound.stop()
                         }
                     }
-                    let clipIndex = Int(CGFloat.random(min: 0, max: CGFloat(self.numSounds)))
+                    let clipIndex = Int(CGFloat.random(min: 0, max: CGFloat(self.numNomineeSounds)))
                     self.nomineeSounds[clipIndex].play()
                 })
             }
@@ -329,10 +353,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
             
             
             if gameOver == false {
+                createSocialButtons()
                 bird.physicsBody?.friction = 0.5
                 bird.physicsBody?.restitution = 0.2
                 bird.physicsBody?.applyImpulse(CGVector(dx: CGFloat.random(min: 2, max: 6), dy: CGFloat.random(min: 0.2, max: 3)))
                 playFlappyDiedSound()
+                let dieSoundIndex = Int(CGFloat.random(min: 0, max: CGFloat(numNomineeDeathSounds)))
+                dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
+                    if self.numNomineeDeathSounds > 0 {
+                        self.nomineeDeathSound[dieSoundIndex].play()
+                    }
+                })
                 gameOver = true
                 for child in children {
                     if child.name == "wallPair" {
@@ -344,22 +375,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                 back.hidden = false
                 timeOfDeath = NSDate()
                 
-                if nominee == "donald" {
-                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
-                        self.diedSound.play()
-                    })
-                }
                 
-                if scoreObject != nil {
-                    let totalScore = scoreObject["score"] as! Int
-                    scoreObject["score"] = totalScore + self.score
-                    scoreObject.saveInBackgroundWithBlock({ (success, error) in
-                        if error == nil {
-                            print("score saved")
-                        } else {
-                            print(error)
-                        }
-                    })
+                
+                if Reachability.isConnectedToNetwork() {
+                    if scoreObject != nil {
+                        let totalScore = scoreObject["score"] as! Int
+                        scoreObject["score"] = totalScore + self.score
+                        scoreObject.saveInBackgroundWithBlock({ (success, error) in
+                            if error == nil {
+                                print("score saved")
+                            } else {
+                                print(error)
+                            }
+                        })
+                    }
+                    let user = PFUser.currentUser()
+                    if user != nil {
+                        let userScore = PFObject(className: "UserScores")
+                        userScore["score"] = self.score
+                        userScore["nominee"] = self.nominee
+                        userScore.saveInBackgroundWithBlock({ (success, error) in
+                            if error == nil {
+                                let userScores = user!.relationForKey("userScores")
+                                userScores.addObject(userScore)
+                                user!.saveInBackground()
+                                print(success)
+                            } else {
+                                print(error)
+                            }
+                        })
+                        
+                    }
+                    
                 }
                 
                 let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -384,9 +431,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                     }
                 }
             }
-            
-            createSocialButtons()
-            
         }
     }
     
@@ -444,21 +488,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
         interstitial.delegate = self
         let request = GADRequest()
-//        request.testDevices = [kGADSimulatorID, "028af437e870b654f8f26c0d88a946ed"]
+        request.testDevices = [kGADSimulatorID, "028af437e870b654f8f26c0d88a946ed"]
         interstitial.loadRequest(request)
         return interstitial
     }
     
     func createSocialButtons() {
+        
+        let socialSize: CGFloat = 40
         facebook = SKSpriteNode(imageNamed: "facebook")
-        facebook.size = CGSize(width: 35, height: 35)
-        facebook.position = CGPoint(x: frame.width / 2 - 35, y: ground.frame.height + 22)
+        facebook.size = CGSize(width: socialSize, height: socialSize)
+        facebook.position = CGPoint(x: frame.width / 2 - socialSize, y: ground.frame.height + 25)
         facebook.zPosition = 5
         addChild(facebook)
         
         twitter = SKSpriteNode(imageNamed: "twitter")
-        twitter.size = CGSize(width: 35, height: 35)
-        twitter.position = CGPoint(x: frame.width / 2 + 35, y: ground.frame.height + 22)
+        twitter.size = CGSize(width: socialSize, height: socialSize)
+        twitter.position = CGPoint(x: frame.width / 2 + socialSize, y: ground.frame.height + 25)
         twitter.zPosition = 5
         addChild(twitter)
     }
@@ -469,16 +515,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
     
     func postToFacebook() {
         let shareToFacebook = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-//        let image = UIImage(named: "donald")
-//        shareToFacebook.addImage(image)
-        shareToFacebook.setInitialText("I just got \(score) with Donald Trump on Flappy President!")
-//        let url = NSURL(fileURLWithPath: "http://nba.com")
-//        shareToFacebook.addURL(url)
+        shareToFacebook.addImage(UIImage(named: "dem_icon"))
+        shareToFacebook.addURL(NSURL(string: "http://www.javelindevelopment.com/"))
         root.presentViewController(shareToFacebook, animated: false, completion: nil)
     }
     
     func postToTwitter() {
         let shareToTwitter = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+        shareToTwitter.addURL(NSURL(string: "http://www.javelindevelopment.com/"))
         root.presentViewController(shareToTwitter, animated: false, completion: nil)
     }
     
@@ -500,6 +544,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         })
     }
     
+    
+    func cropToBounds(image: UIImage, width: Double, height: Double) -> UIImage {
+        
+        let contextImage: UIImage = UIImage(CGImage: image.CGImage!)
+        
+        let contextSize: CGSize = contextImage.size
+        
+        var posX: CGFloat = 0.0
+        var posY: CGFloat = 0.0
+        var cgwidth: CGFloat = CGFloat(width)
+        var cgheight: CGFloat = CGFloat(height)
+        
+        // See what size is longer and create the center off of that
+        if contextSize.width > contextSize.height {
+            posX = ((contextSize.width - contextSize.height) / 2)
+            posY = 0
+            cgwidth = contextSize.height
+            cgheight = contextSize.height
+        } else {
+            posX = 0
+            posY = ((contextSize.height - contextSize.width) / 2)
+            cgwidth = contextSize.width
+            cgheight = contextSize.width
+        }
+        
+        let rect: CGRect = CGRectMake(posX, posY, cgwidth, cgheight)
+        
+        // Create bitmap image from context using the rect
+        let imageRef: CGImageRef = CGImageCreateWithImageInRect(contextImage.CGImage, rect)!
+        
+        // Create a new image based on the imageRef and rotate back to the original orientation
+        let image: UIImage = UIImage(CGImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+        
+        return image
+    }
     
     
 }

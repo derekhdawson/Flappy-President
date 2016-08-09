@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34101C941D556AB3004143E9 /* donald_sound_death1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C881D556AB3004143E9 /* donald_sound_death1.wav */; };
+		34101C951D556AB3004143E9 /* donald_sound_death2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C891D556AB3004143E9 /* donald_sound_death2.wav */; };
+		34101C961D556AB3004143E9 /* donald_sound_death3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8A1D556AB3004143E9 /* donald_sound_death3.wav */; };
+		34101C971D556AB3004143E9 /* donald_sound_death4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8B1D556AB3004143E9 /* donald_sound_death4.wav */; };
+		34101C981D556AB3004143E9 /* donald_sound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8C1D556AB3004143E9 /* donald_sound1.wav */; };
+		34101C991D556AB3004143E9 /* donald_sound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8D1D556AB3004143E9 /* donald_sound2.wav */; };
+		34101C9A1D556AB3004143E9 /* donald_sound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8E1D556AB3004143E9 /* donald_sound3.wav */; };
+		34101C9B1D556AB3004143E9 /* donald_sound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8F1D556AB3004143E9 /* donald_sound4.wav */; };
+		34101C9C1D556AB3004143E9 /* donald_sound5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C901D556AB3004143E9 /* donald_sound5.wav */; };
+		34101C9D1D556AB3004143E9 /* donald_sound6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C911D556AB3004143E9 /* donald_sound6.wav */; };
+		34101C9E1D556AB3004143E9 /* donald_sound7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C921D556AB3004143E9 /* donald_sound7.wav */; };
+		34101C9F1D556AB3004143E9 /* donald_sound8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C931D556AB3004143E9 /* donald_sound8.wav */; };
+		34101CA51D556AC9004143E9 /* hillary_sound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CA01D556AC9004143E9 /* hillary_sound1.wav */; };
+		34101CA61D556AC9004143E9 /* hillary_sound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CA11D556AC9004143E9 /* hillary_sound2.wav */; };
+		34101CA71D556AC9004143E9 /* hillary_sound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CA21D556AC9004143E9 /* hillary_sound3.wav */; };
+		34101CA81D556AC9004143E9 /* hillary_sound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CA31D556AC9004143E9 /* hillary_sound4.wav */; };
+		34101CA91D556AC9004143E9 /* hillary_sound5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CA41D556AC9004143E9 /* hillary_sound5.wav */; };
+		34101CAF1D56B52F004143E9 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34101CAE1D56B52F004143E9 /* Reachability.swift */; };
+		34101CB91D5A7A24004143E9 /* hillary_sound6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CB81D5A7A24004143E9 /* hillary_sound6.wav */; };
+		34101CBE1D5A7A30004143E9 /* hillary_sound_death1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CBA1D5A7A30004143E9 /* hillary_sound_death1.wav */; };
+		34101CBF1D5A7A30004143E9 /* hillary_sound_death2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CBB1D5A7A30004143E9 /* hillary_sound_death2.wav */; };
+		34101CC01D5A7A30004143E9 /* hillary_sound_death3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CBC1D5A7A30004143E9 /* hillary_sound_death3.wav */; };
+		34101CC11D5A7A30004143E9 /* hillary_sound_death4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CBD1D5A7A30004143E9 /* hillary_sound_death4.wav */; };
+		34101CC31D5A8EEF004143E9 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34101CC21D5A8EEF004143E9 /* GoogleMobileAds.framework */; };
 		346966241D5262CE0026FDD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966231D5262CE0026FDD0 /* AppDelegate.swift */; };
 		346966261D5262CE0026FDD0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 346966251D5262CE0026FDD0 /* GameScene.sks */; };
 		346966281D5262CE0026FDD0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966271D5262CE0026FDD0 /* GameScene.swift */; };
@@ -20,20 +44,10 @@
 		346966581D5263C00026FDD0 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966571D5263C00026FDD0 /* PhysicsCategory.swift */; };
 		348B8F8A1D533C9A000C2360 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 348B8F891D533C9A000C2360 /* GoogleService-Info.plist */; };
 		348B8F8C1D53B45A000C2360 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348B8F8B1D53B45A000C2360 /* Social.framework */; };
-		34D36B901D54362400C9E728 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D36B8F1D54362400C9E728 /* GoogleMobileAds.framework */; };
 		34E8F2301D52684F003651F7 /* coin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2221D52684F003651F7 /* coin.mp3 */; };
 		34E8F2311D52684F003651F7 /* hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2231D52684F003651F7 /* hit.mp3 */; };
 		34E8F2321D52684F003651F7 /* sfx_swooshing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2241D52684F003651F7 /* sfx_swooshing.mp3 */; };
 		34E8F2331D52684F003651F7 /* sfx_wing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2251D52684F003651F7 /* sfx_wing.mp3 */; };
-		34E8F2341D52684F003651F7 /* hillary_sound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2271D52684F003651F7 /* hillary_sound1.mp3 */; };
-		34E8F2351D52684F003651F7 /* donald_sound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2291D52684F003651F7 /* donald_sound1.mp3 */; };
-		34E8F2361D52684F003651F7 /* donald_sound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F22A1D52684F003651F7 /* donald_sound2.mp3 */; };
-		34E8F2371D52684F003651F7 /* donald_sound3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F22B1D52684F003651F7 /* donald_sound3.mp3 */; };
-		34E8F2381D52684F003651F7 /* donald_sound4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F22C1D52684F003651F7 /* donald_sound4.mp3 */; };
-		34E8F2391D52684F003651F7 /* donald_sound5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F22D1D52684F003651F7 /* donald_sound5.mp3 */; };
-		34E8F23A1D52684F003651F7 /* donald_sound6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F22E1D52684F003651F7 /* donald_sound6.mp3 */; };
-		34E8F23B1D52684F003651F7 /* donald_sound7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F22F1D52684F003651F7 /* donald_sound7.mp3 */; };
-		34E8F23D1D526861003651F7 /* unbelievable.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F23C1D526861003651F7 /* unbelievable.mp3 */; };
 		6B81ADD1BB9688EF22AAE9EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA8AB4C0792BE36F271C9D0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +71,30 @@
 /* Begin PBXFileReference section */
 		0633966DEF8D9B85D2671B1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		0B4C972A710FF17F97B1A410 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		34101C881D556AB3004143E9 /* donald_sound_death1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound_death1.wav; sourceTree = "<group>"; };
+		34101C891D556AB3004143E9 /* donald_sound_death2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound_death2.wav; sourceTree = "<group>"; };
+		34101C8A1D556AB3004143E9 /* donald_sound_death3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound_death3.wav; sourceTree = "<group>"; };
+		34101C8B1D556AB3004143E9 /* donald_sound_death4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound_death4.wav; sourceTree = "<group>"; };
+		34101C8C1D556AB3004143E9 /* donald_sound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound1.wav; sourceTree = "<group>"; };
+		34101C8D1D556AB3004143E9 /* donald_sound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound2.wav; sourceTree = "<group>"; };
+		34101C8E1D556AB3004143E9 /* donald_sound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound3.wav; sourceTree = "<group>"; };
+		34101C8F1D556AB3004143E9 /* donald_sound4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound4.wav; sourceTree = "<group>"; };
+		34101C901D556AB3004143E9 /* donald_sound5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound5.wav; sourceTree = "<group>"; };
+		34101C911D556AB3004143E9 /* donald_sound6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound6.wav; sourceTree = "<group>"; };
+		34101C921D556AB3004143E9 /* donald_sound7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound7.wav; sourceTree = "<group>"; };
+		34101C931D556AB3004143E9 /* donald_sound8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound8.wav; sourceTree = "<group>"; };
+		34101CA01D556AC9004143E9 /* hillary_sound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound1.wav; sourceTree = "<group>"; };
+		34101CA11D556AC9004143E9 /* hillary_sound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound2.wav; sourceTree = "<group>"; };
+		34101CA21D556AC9004143E9 /* hillary_sound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound3.wav; sourceTree = "<group>"; };
+		34101CA31D556AC9004143E9 /* hillary_sound4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound4.wav; sourceTree = "<group>"; };
+		34101CA41D556AC9004143E9 /* hillary_sound5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound5.wav; sourceTree = "<group>"; };
+		34101CAE1D56B52F004143E9 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		34101CB81D5A7A24004143E9 /* hillary_sound6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound6.wav; sourceTree = "<group>"; };
+		34101CBA1D5A7A30004143E9 /* hillary_sound_death1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound_death1.wav; sourceTree = "<group>"; };
+		34101CBB1D5A7A30004143E9 /* hillary_sound_death2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound_death2.wav; sourceTree = "<group>"; };
+		34101CBC1D5A7A30004143E9 /* hillary_sound_death3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound_death3.wav; sourceTree = "<group>"; };
+		34101CBD1D5A7A30004143E9 /* hillary_sound_death4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound_death4.wav; sourceTree = "<group>"; };
+		34101CC21D5A8EEF004143E9 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		346966201D5262CE0026FDD0 /* Flappy Pres.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flappy Pres.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		346966231D5262CE0026FDD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		346966251D5262CE0026FDD0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -77,21 +115,11 @@
 		348B8F891D533C9A000C2360 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		348B8F8B1D53B45A000C2360 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		34D36B8B1D5434C400C9E728 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-7.9.1 6/GoogleMobileAds.framework"; sourceTree = "<group>"; };
-		34D36B8F1D54362400C9E728 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		34E8F21B1D526538003651F7 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		34E8F2221D52684F003651F7 /* coin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin.mp3; sourceTree = "<group>"; };
 		34E8F2231D52684F003651F7 /* hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit.mp3; sourceTree = "<group>"; };
 		34E8F2241D52684F003651F7 /* sfx_swooshing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_swooshing.mp3; sourceTree = "<group>"; };
 		34E8F2251D52684F003651F7 /* sfx_wing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_wing.mp3; sourceTree = "<group>"; };
-		34E8F2271D52684F003651F7 /* hillary_sound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hillary_sound1.mp3; sourceTree = "<group>"; };
-		34E8F2291D52684F003651F7 /* donald_sound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound1.mp3; sourceTree = "<group>"; };
-		34E8F22A1D52684F003651F7 /* donald_sound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound2.mp3; sourceTree = "<group>"; };
-		34E8F22B1D52684F003651F7 /* donald_sound3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound3.mp3; sourceTree = "<group>"; };
-		34E8F22C1D52684F003651F7 /* donald_sound4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound4.mp3; sourceTree = "<group>"; };
-		34E8F22D1D52684F003651F7 /* donald_sound5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound5.mp3; sourceTree = "<group>"; };
-		34E8F22E1D52684F003651F7 /* donald_sound6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound6.mp3; sourceTree = "<group>"; };
-		34E8F22F1D52684F003651F7 /* donald_sound7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound7.mp3; sourceTree = "<group>"; };
-		34E8F23C1D526861003651F7 /* unbelievable.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = unbelievable.mp3; sourceTree = "<group>"; };
 		4FA8AB4C0792BE36F271C9D0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,7 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34D36B901D54362400C9E728 /* GoogleMobileAds.framework in Frameworks */,
+				34101CC31D5A8EEF004143E9 /* GoogleMobileAds.framework in Frameworks */,
 				348B8F8C1D53B45A000C2360 /* Social.framework in Frameworks */,
 				6B81ADD1BB9688EF22AAE9EF /* libPods.a in Frameworks */,
 			);
@@ -158,9 +186,10 @@
 		346966221D5262CE0026FDD0 /* Flappy Pres */ = {
 			isa = PBXGroup;
 			children = (
-				34D36B8F1D54362400C9E728 /* GoogleMobileAds.framework */,
+				34101CC21D5A8EEF004143E9 /* GoogleMobileAds.framework */,
 				348B8F891D533C9A000C2360 /* GoogleService-Info.plist */,
 				346966551D5263AB0026FDD0 /* MenuScene.swift */,
+				34101CAE1D56B52F004143E9 /* Reachability.swift */,
 				346966571D5263C00026FDD0 /* PhysicsCategory.swift */,
 				346966231D5262CE0026FDD0 /* AppDelegate.swift */,
 				346966251D5262CE0026FDD0 /* GameScene.sks */,
@@ -218,7 +247,16 @@
 		34E8F2261D52684F003651F7 /* hillary sounds */ = {
 			isa = PBXGroup;
 			children = (
-				34E8F2271D52684F003651F7 /* hillary_sound1.mp3 */,
+				34101CA01D556AC9004143E9 /* hillary_sound1.wav */,
+				34101CA11D556AC9004143E9 /* hillary_sound2.wav */,
+				34101CA21D556AC9004143E9 /* hillary_sound3.wav */,
+				34101CA31D556AC9004143E9 /* hillary_sound4.wav */,
+				34101CA41D556AC9004143E9 /* hillary_sound5.wav */,
+				34101CB81D5A7A24004143E9 /* hillary_sound6.wav */,
+				34101CBA1D5A7A30004143E9 /* hillary_sound_death1.wav */,
+				34101CBB1D5A7A30004143E9 /* hillary_sound_death2.wav */,
+				34101CBC1D5A7A30004143E9 /* hillary_sound_death3.wav */,
+				34101CBD1D5A7A30004143E9 /* hillary_sound_death4.wav */,
 			);
 			path = "hillary sounds";
 			sourceTree = "<group>";
@@ -226,14 +264,18 @@
 		34E8F2281D52684F003651F7 /* trump sounds */ = {
 			isa = PBXGroup;
 			children = (
-				34E8F23C1D526861003651F7 /* unbelievable.mp3 */,
-				34E8F2291D52684F003651F7 /* donald_sound1.mp3 */,
-				34E8F22A1D52684F003651F7 /* donald_sound2.mp3 */,
-				34E8F22B1D52684F003651F7 /* donald_sound3.mp3 */,
-				34E8F22C1D52684F003651F7 /* donald_sound4.mp3 */,
-				34E8F22D1D52684F003651F7 /* donald_sound5.mp3 */,
-				34E8F22E1D52684F003651F7 /* donald_sound6.mp3 */,
-				34E8F22F1D52684F003651F7 /* donald_sound7.mp3 */,
+				34101C881D556AB3004143E9 /* donald_sound_death1.wav */,
+				34101C891D556AB3004143E9 /* donald_sound_death2.wav */,
+				34101C8A1D556AB3004143E9 /* donald_sound_death3.wav */,
+				34101C8B1D556AB3004143E9 /* donald_sound_death4.wav */,
+				34101C8C1D556AB3004143E9 /* donald_sound1.wav */,
+				34101C8D1D556AB3004143E9 /* donald_sound2.wav */,
+				34101C8E1D556AB3004143E9 /* donald_sound3.wav */,
+				34101C8F1D556AB3004143E9 /* donald_sound4.wav */,
+				34101C901D556AB3004143E9 /* donald_sound5.wav */,
+				34101C911D556AB3004143E9 /* donald_sound6.wav */,
+				34101C921D556AB3004143E9 /* donald_sound7.wav */,
+				34101C931D556AB3004143E9 /* donald_sound8.wav */,
 			);
 			path = "trump sounds";
 			sourceTree = "<group>";
@@ -354,24 +396,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34E8F2391D52684F003651F7 /* donald_sound5.mp3 in Resources */,
+				34101CA51D556AC9004143E9 /* hillary_sound1.wav in Resources */,
+				34101C9C1D556AB3004143E9 /* donald_sound5.wav in Resources */,
+				34101CA81D556AC9004143E9 /* hillary_sound4.wav in Resources */,
 				34E8F2331D52684F003651F7 /* sfx_wing.mp3 in Resources */,
-				34E8F2381D52684F003651F7 /* donald_sound4.mp3 in Resources */,
+				34101C9E1D556AB3004143E9 /* donald_sound7.wav in Resources */,
+				34101C961D556AB3004143E9 /* donald_sound_death3.wav in Resources */,
+				34101C951D556AB3004143E9 /* donald_sound_death2.wav in Resources */,
+				34101CC11D5A7A30004143E9 /* hillary_sound_death4.wav in Resources */,
 				34E8F2321D52684F003651F7 /* sfx_swooshing.mp3 in Resources */,
-				34E8F2351D52684F003651F7 /* donald_sound1.mp3 in Resources */,
-				34E8F2361D52684F003651F7 /* donald_sound2.mp3 in Resources */,
-				34E8F23B1D52684F003651F7 /* donald_sound7.mp3 in Resources */,
-				34E8F2341D52684F003651F7 /* hillary_sound1.mp3 in Resources */,
+				34101CB91D5A7A24004143E9 /* hillary_sound6.wav in Resources */,
 				34E8F2311D52684F003651F7 /* hit.mp3 in Resources */,
+				34101C9D1D556AB3004143E9 /* donald_sound6.wav in Resources */,
+				34101C971D556AB3004143E9 /* donald_sound_death4.wav in Resources */,
+				34101CBF1D5A7A30004143E9 /* hillary_sound_death2.wav in Resources */,
 				346966261D5262CE0026FDD0 /* GameScene.sks in Resources */,
-				34E8F23D1D526861003651F7 /* unbelievable.mp3 in Resources */,
 				348B8F8A1D533C9A000C2360 /* GoogleService-Info.plist in Resources */,
+				34101C9B1D556AB3004143E9 /* donald_sound4.wav in Resources */,
+				34101C9F1D556AB3004143E9 /* donald_sound8.wav in Resources */,
+				34101CA71D556AC9004143E9 /* hillary_sound3.wav in Resources */,
+				34101CA91D556AC9004143E9 /* hillary_sound5.wav in Resources */,
 				346966321D5262CE0026FDD0 /* LaunchScreen.storyboard in Resources */,
 				3469662F1D5262CE0026FDD0 /* Assets.xcassets in Resources */,
+				34101C9A1D556AB3004143E9 /* donald_sound3.wav in Resources */,
+				34101C941D556AB3004143E9 /* donald_sound_death1.wav in Resources */,
+				34101CC01D5A7A30004143E9 /* hillary_sound_death3.wav in Resources */,
 				3469662D1D5262CE0026FDD0 /* Main.storyboard in Resources */,
-				34E8F2371D52684F003651F7 /* donald_sound3.mp3 in Resources */,
+				34101CBE1D5A7A30004143E9 /* hillary_sound_death1.wav in Resources */,
+				34101C991D556AB3004143E9 /* donald_sound2.wav in Resources */,
+				34101CA61D556AC9004143E9 /* hillary_sound2.wav in Resources */,
+				34101C981D556AB3004143E9 /* donald_sound1.wav in Resources */,
 				34E8F2301D52684F003651F7 /* coin.mp3 in Resources */,
-				34E8F23A1D52684F003651F7 /* donald_sound6.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +501,7 @@
 			files = (
 				346966281D5262CE0026FDD0 /* GameScene.swift in Sources */,
 				346966561D5263AB0026FDD0 /* MenuScene.swift in Sources */,
+				34101CAF1D56B52F004143E9 /* Reachability.swift in Sources */,
 				346966581D5263C00026FDD0 /* PhysicsCategory.swift in Sources */,
 				3469662A1D5262CE0026FDD0 /* GameViewController.swift in Sources */,
 				346966241D5262CE0026FDD0 /* AppDelegate.swift in Sources */,
@@ -591,8 +647,23 @@
 			baseConfigurationReference = 0633966DEF8D9B85D2671B1C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
 					"$(PROJECT_DIR)/Flappy",
 					Pres,
 					"$(PROJECT_DIR)/Flappy",
@@ -646,8 +717,23 @@
 			baseConfigurationReference = 0B4C972A710FF17F97B1A410 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
 					"$(PROJECT_DIR)/Flappy",
 					Pres,
 					"$(PROJECT_DIR)/Flappy",

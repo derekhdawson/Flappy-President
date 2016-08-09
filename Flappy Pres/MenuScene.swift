@@ -51,12 +51,10 @@ class MenuScene: SKScene {
         selectLabel.zPosition = 2
         //        addChild(selectLabel)
         
-        
-        
         drawScores(redraw: false)
         
         activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
-        activityIndicator.center = CGPoint(x: frame.width / 2, y: frame.height * 0.5 - 133)
+        activityIndicator.center = CGPoint(x: frame.width / 2, y: frame.height * 0.5 - 115)
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
         
