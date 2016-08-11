@@ -35,9 +35,8 @@ class GameViewController: UIViewController, GADBannerViewDelegate {
         adBannerView = GADBannerView(frame: CGRectMake(0, self.view.frame.height - 50, self.view.frame.size.width, 50))
         adBannerView.delegate = self
         adBannerView.rootViewController = self
-        adBannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        adBannerView.adUnitID = "ca-app-pub-5214892420848108/1396437279"
         let reqAd = GADRequest()
-        reqAd.testDevices = [kGADSimulatorID, "028af437e870b654f8f26c0d88a946ed"]
         adBannerView.loadRequest(reqAd)
         self.view.addSubview(adBannerView)
         

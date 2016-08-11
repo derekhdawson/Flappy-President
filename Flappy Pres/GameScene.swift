@@ -184,7 +184,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                     self.createWalls()
                 }
                 
-                let delay = SKAction.waitForDuration(1.5)
+                let delay = SKAction.waitForDuration(1.4)
                 let spawnDelay = SKAction.sequence([spawn, delay])
                 let spawnDelayForever = SKAction.repeatActionForever(spawnDelay)
                 self.runAction(spawnDelayForever)
@@ -211,7 +211,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                         scene?.paused = true
                         
                     } else {
-                        flappySounds[2].play()
+                        playFlappyJumpSound()
                         bird.physicsBody?.velocity = CGVectorMake(0, 0)
                         bird.physicsBody?.applyImpulse(CGVectorMake(0, jumpImpulse))
                     }
@@ -340,6 +340,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                     for sound in self.nomineeSounds {
                         if sound.playing {
                             sound.stop()
+                            sound.currentTime = 0
                         }
                     }
                     let clipIndex = Int(CGFloat.random(min: 0, max: CGFloat(self.numNomineeSounds)))
@@ -399,7 +400,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                                 let userScores = user!.relationForKey("userScores")
                                 userScores.addObject(userScore)
                                 user!.saveInBackground()
-                                print(success)
+                                print("saved user score")
                             } else {
                                 print(error)
                             }
@@ -485,10 +486,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
     }
     
     func createAndLoadInterstitial() -> GADInterstitial {
-        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-5214892420848108/8132471670")
         interstitial.delegate = self
         let request = GADRequest()
-        request.testDevices = [kGADSimulatorID, "028af437e870b654f8f26c0d88a946ed"]
         interstitial.loadRequest(request)
         return interstitial
     }
@@ -515,14 +515,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
     
     func postToFacebook() {
         let shareToFacebook = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-        shareToFacebook.addImage(UIImage(named: "dem_icon"))
-        shareToFacebook.addURL(NSURL(string: "http://www.javelindevelopment.com/"))
+        shareToFacebook.addURL(NSURL(string: "https://itunes.apple.com/us/app/flappy-pres/id1139952569?ls=1&mt=8"))
         root.presentViewController(shareToFacebook, animated: false, completion: nil)
     }
     
     func postToTwitter() {
         let shareToTwitter = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-        shareToTwitter.addURL(NSURL(string: "http://www.javelindevelopment.com/"))
+        shareToTwitter.addURL(NSURL(string: "https://itunes.apple.com/us/app/flappy-pres/id1139952569?ls=1&mt=8"))
         root.presentViewController(shareToTwitter, animated: false, completion: nil)
     }
     

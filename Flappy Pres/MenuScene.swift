@@ -63,7 +63,9 @@ class MenuScene: SKScene {
             print("redraw score")
             self.drawScores(redraw: true)
         }
+    
         globalLabel.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
+        
         
     }
     
@@ -123,6 +125,16 @@ class MenuScene: SKScene {
         }
         redRect.position = CGPoint(x: frame.width / 2 - (frame.width - redRect.frame.width) / 2 + 10, y: frame.height * 0.49 + 100 + 30)
         blueRect.position = CGPoint(x: frame.width / 2 - (frame.width - blueRect.frame.width) / 2 + 10, y: frame.height * 0.49 + 100)
+        
+        let donaldIcon = SKSpriteNode(imageNamed: "small_donald")
+        donaldIcon.size = CGSize(width: redRect.frame.height * 0.8, height: redRect.frame.height * 0.8)
+        donaldIcon.zPosition = 3
+//        redRect.addChild(donaldIcon)
+        
+        let hillaryIcon = SKSpriteNode(imageNamed: "small_hillary")
+        hillaryIcon.size = CGSize(width: redRect.frame.height * 0.8, height: redRect.frame.height * 0.8)
+        hillaryIcon.zPosition = 3
+//        blueRect.addChild(hillaryIcon)
         
         donaldLabel.text = "\(Int(dScore))"
         donaldLabel.position = CGPoint(x: redRect.frame.width + 40, y: frame.height * 0.49 + 100 + 30 - (donaldLabel.frame.height / 2))
