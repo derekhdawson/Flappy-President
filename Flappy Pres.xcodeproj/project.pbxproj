@@ -7,30 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34101C941D556AB3004143E9 /* donald_sound_death1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C881D556AB3004143E9 /* donald_sound_death1.wav */; };
-		34101C951D556AB3004143E9 /* donald_sound_death2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C891D556AB3004143E9 /* donald_sound_death2.wav */; };
-		34101C961D556AB3004143E9 /* donald_sound_death3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8A1D556AB3004143E9 /* donald_sound_death3.wav */; };
-		34101C971D556AB3004143E9 /* donald_sound_death4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8B1D556AB3004143E9 /* donald_sound_death4.wav */; };
-		34101C981D556AB3004143E9 /* donald_sound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8C1D556AB3004143E9 /* donald_sound1.wav */; };
-		34101C991D556AB3004143E9 /* donald_sound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8D1D556AB3004143E9 /* donald_sound2.wav */; };
-		34101C9A1D556AB3004143E9 /* donald_sound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8E1D556AB3004143E9 /* donald_sound3.wav */; };
-		34101C9B1D556AB3004143E9 /* donald_sound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C8F1D556AB3004143E9 /* donald_sound4.wav */; };
-		34101C9C1D556AB3004143E9 /* donald_sound5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C901D556AB3004143E9 /* donald_sound5.wav */; };
-		34101C9D1D556AB3004143E9 /* donald_sound6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C911D556AB3004143E9 /* donald_sound6.wav */; };
-		34101C9E1D556AB3004143E9 /* donald_sound7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C921D556AB3004143E9 /* donald_sound7.wav */; };
-		34101C9F1D556AB3004143E9 /* donald_sound8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101C931D556AB3004143E9 /* donald_sound8.wav */; };
-		34101CA51D556AC9004143E9 /* hillary_sound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CA01D556AC9004143E9 /* hillary_sound1.wav */; };
-		34101CA61D556AC9004143E9 /* hillary_sound2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CA11D556AC9004143E9 /* hillary_sound2.wav */; };
-		34101CA71D556AC9004143E9 /* hillary_sound3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CA21D556AC9004143E9 /* hillary_sound3.wav */; };
-		34101CA81D556AC9004143E9 /* hillary_sound4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CA31D556AC9004143E9 /* hillary_sound4.wav */; };
-		34101CA91D556AC9004143E9 /* hillary_sound5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CA41D556AC9004143E9 /* hillary_sound5.wav */; };
 		34101CAF1D56B52F004143E9 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34101CAE1D56B52F004143E9 /* Reachability.swift */; };
-		34101CB91D5A7A24004143E9 /* hillary_sound6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CB81D5A7A24004143E9 /* hillary_sound6.wav */; };
-		34101CBE1D5A7A30004143E9 /* hillary_sound_death1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CBA1D5A7A30004143E9 /* hillary_sound_death1.wav */; };
-		34101CBF1D5A7A30004143E9 /* hillary_sound_death2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CBB1D5A7A30004143E9 /* hillary_sound_death2.wav */; };
-		34101CC01D5A7A30004143E9 /* hillary_sound_death3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CBC1D5A7A30004143E9 /* hillary_sound_death3.wav */; };
-		34101CC11D5A7A30004143E9 /* hillary_sound_death4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34101CBD1D5A7A30004143E9 /* hillary_sound_death4.wav */; };
-		34101CCB1D5C3F44004143E9 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34101CCA1D5C3F44004143E9 /* GoogleMobileAds.framework */; };
+		34101D121D5E443D004143E9 /* coin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D0E1D5E443D004143E9 /* coin.mp3 */; };
+		34101D131D5E443D004143E9 /* hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D0F1D5E443D004143E9 /* hit.mp3 */; };
+		34101D141D5E443D004143E9 /* sfx_swooshing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D101D5E443D004143E9 /* sfx_swooshing.mp3 */; };
+		34101D151D5E443D004143E9 /* sfx_wing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D111D5E443D004143E9 /* sfx_wing.mp3 */; };
+		34101D201D5E4447004143E9 /* hillary_sound_death1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D161D5E4447004143E9 /* hillary_sound_death1.mp3 */; };
+		34101D211D5E4447004143E9 /* hillary_sound_death2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D171D5E4447004143E9 /* hillary_sound_death2.mp3 */; };
+		34101D221D5E4447004143E9 /* hillary_sound_death3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D181D5E4447004143E9 /* hillary_sound_death3.mp3 */; };
+		34101D231D5E4447004143E9 /* hillary_sound_death4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D191D5E4447004143E9 /* hillary_sound_death4.mp3 */; };
+		34101D241D5E4447004143E9 /* hillary_sound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D1A1D5E4447004143E9 /* hillary_sound1.mp3 */; };
+		34101D251D5E4447004143E9 /* hillary_sound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D1B1D5E4447004143E9 /* hillary_sound2.mp3 */; };
+		34101D261D5E4447004143E9 /* hillary_sound3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D1C1D5E4447004143E9 /* hillary_sound3.mp3 */; };
+		34101D271D5E4447004143E9 /* hillary_sound4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D1D1D5E4447004143E9 /* hillary_sound4.mp3 */; };
+		34101D281D5E4447004143E9 /* hillary_sound5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D1E1D5E4447004143E9 /* hillary_sound5.mp3 */; };
+		34101D291D5E4447004143E9 /* hillary_sound6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D1F1D5E4447004143E9 /* hillary_sound6.mp3 */; };
+		34101D361D5E4455004143E9 /* donald_sound_death1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D2A1D5E4455004143E9 /* donald_sound_death1.mp3 */; };
+		34101D371D5E4455004143E9 /* donald_sound_death2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D2B1D5E4455004143E9 /* donald_sound_death2.mp3 */; };
+		34101D381D5E4455004143E9 /* donald_sound_death3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D2C1D5E4455004143E9 /* donald_sound_death3.mp3 */; };
+		34101D391D5E4455004143E9 /* donald_sound_death4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D2D1D5E4455004143E9 /* donald_sound_death4.mp3 */; };
+		34101D3A1D5E4455004143E9 /* donald_sound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D2E1D5E4455004143E9 /* donald_sound1.mp3 */; };
+		34101D3B1D5E4455004143E9 /* donald_sound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D2F1D5E4455004143E9 /* donald_sound2.mp3 */; };
+		34101D3C1D5E4455004143E9 /* donald_sound3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D301D5E4455004143E9 /* donald_sound3.mp3 */; };
+		34101D3D1D5E4455004143E9 /* donald_sound4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D311D5E4455004143E9 /* donald_sound4.mp3 */; };
+		34101D3E1D5E4455004143E9 /* donald_sound5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D321D5E4455004143E9 /* donald_sound5.mp3 */; };
+		34101D3F1D5E4455004143E9 /* donald_sound6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D331D5E4455004143E9 /* donald_sound6.mp3 */; };
+		34101D401D5E4455004143E9 /* donald_sound7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D341D5E4455004143E9 /* donald_sound7.mp3 */; };
+		34101D411D5E4455004143E9 /* donald_sound8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34101D351D5E4455004143E9 /* donald_sound8.mp3 */; };
 		346966241D5262CE0026FDD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966231D5262CE0026FDD0 /* AppDelegate.swift */; };
 		346966261D5262CE0026FDD0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 346966251D5262CE0026FDD0 /* GameScene.sks */; };
 		346966281D5262CE0026FDD0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966271D5262CE0026FDD0 /* GameScene.swift */; };
@@ -44,10 +47,6 @@
 		346966581D5263C00026FDD0 /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346966571D5263C00026FDD0 /* PhysicsCategory.swift */; };
 		348B8F8A1D533C9A000C2360 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 348B8F891D533C9A000C2360 /* GoogleService-Info.plist */; };
 		348B8F8C1D53B45A000C2360 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348B8F8B1D53B45A000C2360 /* Social.framework */; };
-		34E8F2301D52684F003651F7 /* coin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2221D52684F003651F7 /* coin.mp3 */; };
-		34E8F2311D52684F003651F7 /* hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2231D52684F003651F7 /* hit.mp3 */; };
-		34E8F2321D52684F003651F7 /* sfx_swooshing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2241D52684F003651F7 /* sfx_swooshing.mp3 */; };
-		34E8F2331D52684F003651F7 /* sfx_wing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34E8F2251D52684F003651F7 /* sfx_wing.mp3 */; };
 		6B81ADD1BB9688EF22AAE9EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA8AB4C0792BE36F271C9D0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -71,30 +70,33 @@
 /* Begin PBXFileReference section */
 		0633966DEF8D9B85D2671B1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		0B4C972A710FF17F97B1A410 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		34101C881D556AB3004143E9 /* donald_sound_death1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound_death1.wav; sourceTree = "<group>"; };
-		34101C891D556AB3004143E9 /* donald_sound_death2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound_death2.wav; sourceTree = "<group>"; };
-		34101C8A1D556AB3004143E9 /* donald_sound_death3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound_death3.wav; sourceTree = "<group>"; };
-		34101C8B1D556AB3004143E9 /* donald_sound_death4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound_death4.wav; sourceTree = "<group>"; };
-		34101C8C1D556AB3004143E9 /* donald_sound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound1.wav; sourceTree = "<group>"; };
-		34101C8D1D556AB3004143E9 /* donald_sound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound2.wav; sourceTree = "<group>"; };
-		34101C8E1D556AB3004143E9 /* donald_sound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound3.wav; sourceTree = "<group>"; };
-		34101C8F1D556AB3004143E9 /* donald_sound4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound4.wav; sourceTree = "<group>"; };
-		34101C901D556AB3004143E9 /* donald_sound5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound5.wav; sourceTree = "<group>"; };
-		34101C911D556AB3004143E9 /* donald_sound6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound6.wav; sourceTree = "<group>"; };
-		34101C921D556AB3004143E9 /* donald_sound7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound7.wav; sourceTree = "<group>"; };
-		34101C931D556AB3004143E9 /* donald_sound8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = donald_sound8.wav; sourceTree = "<group>"; };
-		34101CA01D556AC9004143E9 /* hillary_sound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound1.wav; sourceTree = "<group>"; };
-		34101CA11D556AC9004143E9 /* hillary_sound2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound2.wav; sourceTree = "<group>"; };
-		34101CA21D556AC9004143E9 /* hillary_sound3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound3.wav; sourceTree = "<group>"; };
-		34101CA31D556AC9004143E9 /* hillary_sound4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound4.wav; sourceTree = "<group>"; };
-		34101CA41D556AC9004143E9 /* hillary_sound5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound5.wav; sourceTree = "<group>"; };
 		34101CAE1D56B52F004143E9 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		34101CB81D5A7A24004143E9 /* hillary_sound6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound6.wav; sourceTree = "<group>"; };
-		34101CBA1D5A7A30004143E9 /* hillary_sound_death1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound_death1.wav; sourceTree = "<group>"; };
-		34101CBB1D5A7A30004143E9 /* hillary_sound_death2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound_death2.wav; sourceTree = "<group>"; };
-		34101CBC1D5A7A30004143E9 /* hillary_sound_death3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound_death3.wav; sourceTree = "<group>"; };
-		34101CBD1D5A7A30004143E9 /* hillary_sound_death4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hillary_sound_death4.wav; sourceTree = "<group>"; };
-		34101CCA1D5C3F44004143E9 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		34101D0E1D5E443D004143E9 /* coin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin.mp3; sourceTree = "<group>"; };
+		34101D0F1D5E443D004143E9 /* hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit.mp3; sourceTree = "<group>"; };
+		34101D101D5E443D004143E9 /* sfx_swooshing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_swooshing.mp3; sourceTree = "<group>"; };
+		34101D111D5E443D004143E9 /* sfx_wing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_wing.mp3; sourceTree = "<group>"; };
+		34101D161D5E4447004143E9 /* hillary_sound_death1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hillary_sound_death1.mp3; sourceTree = "<group>"; };
+		34101D171D5E4447004143E9 /* hillary_sound_death2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hillary_sound_death2.mp3; sourceTree = "<group>"; };
+		34101D181D5E4447004143E9 /* hillary_sound_death3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hillary_sound_death3.mp3; sourceTree = "<group>"; };
+		34101D191D5E4447004143E9 /* hillary_sound_death4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hillary_sound_death4.mp3; sourceTree = "<group>"; };
+		34101D1A1D5E4447004143E9 /* hillary_sound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hillary_sound1.mp3; sourceTree = "<group>"; };
+		34101D1B1D5E4447004143E9 /* hillary_sound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hillary_sound2.mp3; sourceTree = "<group>"; };
+		34101D1C1D5E4447004143E9 /* hillary_sound3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hillary_sound3.mp3; sourceTree = "<group>"; };
+		34101D1D1D5E4447004143E9 /* hillary_sound4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hillary_sound4.mp3; sourceTree = "<group>"; };
+		34101D1E1D5E4447004143E9 /* hillary_sound5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hillary_sound5.mp3; sourceTree = "<group>"; };
+		34101D1F1D5E4447004143E9 /* hillary_sound6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hillary_sound6.mp3; sourceTree = "<group>"; };
+		34101D2A1D5E4455004143E9 /* donald_sound_death1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound_death1.mp3; sourceTree = "<group>"; };
+		34101D2B1D5E4455004143E9 /* donald_sound_death2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound_death2.mp3; sourceTree = "<group>"; };
+		34101D2C1D5E4455004143E9 /* donald_sound_death3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound_death3.mp3; sourceTree = "<group>"; };
+		34101D2D1D5E4455004143E9 /* donald_sound_death4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound_death4.mp3; sourceTree = "<group>"; };
+		34101D2E1D5E4455004143E9 /* donald_sound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound1.mp3; sourceTree = "<group>"; };
+		34101D2F1D5E4455004143E9 /* donald_sound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound2.mp3; sourceTree = "<group>"; };
+		34101D301D5E4455004143E9 /* donald_sound3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound3.mp3; sourceTree = "<group>"; };
+		34101D311D5E4455004143E9 /* donald_sound4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound4.mp3; sourceTree = "<group>"; };
+		34101D321D5E4455004143E9 /* donald_sound5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound5.mp3; sourceTree = "<group>"; };
+		34101D331D5E4455004143E9 /* donald_sound6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound6.mp3; sourceTree = "<group>"; };
+		34101D341D5E4455004143E9 /* donald_sound7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound7.mp3; sourceTree = "<group>"; };
+		34101D351D5E4455004143E9 /* donald_sound8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = donald_sound8.mp3; sourceTree = "<group>"; };
 		346966201D5262CE0026FDD0 /* Flappy Pres.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flappy Pres.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		346966231D5262CE0026FDD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		346966251D5262CE0026FDD0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -116,10 +118,6 @@
 		348B8F8B1D53B45A000C2360 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		34D36B8B1D5434C400C9E728 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../../Downloads/GoogleMobileAdsSdkiOS-7.9.1 6/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		34E8F21B1D526538003651F7 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
-		34E8F2221D52684F003651F7 /* coin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coin.mp3; sourceTree = "<group>"; };
-		34E8F2231D52684F003651F7 /* hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit.mp3; sourceTree = "<group>"; };
-		34E8F2241D52684F003651F7 /* sfx_swooshing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_swooshing.mp3; sourceTree = "<group>"; };
-		34E8F2251D52684F003651F7 /* sfx_wing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfx_wing.mp3; sourceTree = "<group>"; };
 		4FA8AB4C0792BE36F271C9D0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,7 +126,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34101CCB1D5C3F44004143E9 /* GoogleMobileAds.framework in Frameworks */,
 				348B8F8C1D53B45A000C2360 /* Social.framework in Frameworks */,
 				6B81ADD1BB9688EF22AAE9EF /* libPods.a in Frameworks */,
 			);
@@ -186,7 +183,6 @@
 		346966221D5262CE0026FDD0 /* Flappy Pres */ = {
 			isa = PBXGroup;
 			children = (
-				34101CCA1D5C3F44004143E9 /* GoogleMobileAds.framework */,
 				348B8F891D533C9A000C2360 /* GoogleService-Info.plist */,
 				346966551D5263AB0026FDD0 /* MenuScene.swift */,
 				34101CAE1D56B52F004143E9 /* Reachability.swift */,
@@ -236,10 +232,10 @@
 		34E8F2211D52684F003651F7 /* flappy sounds */ = {
 			isa = PBXGroup;
 			children = (
-				34E8F2221D52684F003651F7 /* coin.mp3 */,
-				34E8F2231D52684F003651F7 /* hit.mp3 */,
-				34E8F2241D52684F003651F7 /* sfx_swooshing.mp3 */,
-				34E8F2251D52684F003651F7 /* sfx_wing.mp3 */,
+				34101D0E1D5E443D004143E9 /* coin.mp3 */,
+				34101D0F1D5E443D004143E9 /* hit.mp3 */,
+				34101D101D5E443D004143E9 /* sfx_swooshing.mp3 */,
+				34101D111D5E443D004143E9 /* sfx_wing.mp3 */,
 			);
 			path = "flappy sounds";
 			sourceTree = "<group>";
@@ -247,16 +243,16 @@
 		34E8F2261D52684F003651F7 /* hillary sounds */ = {
 			isa = PBXGroup;
 			children = (
-				34101CA01D556AC9004143E9 /* hillary_sound1.wav */,
-				34101CA11D556AC9004143E9 /* hillary_sound2.wav */,
-				34101CA21D556AC9004143E9 /* hillary_sound3.wav */,
-				34101CA31D556AC9004143E9 /* hillary_sound4.wav */,
-				34101CA41D556AC9004143E9 /* hillary_sound5.wav */,
-				34101CB81D5A7A24004143E9 /* hillary_sound6.wav */,
-				34101CBA1D5A7A30004143E9 /* hillary_sound_death1.wav */,
-				34101CBB1D5A7A30004143E9 /* hillary_sound_death2.wav */,
-				34101CBC1D5A7A30004143E9 /* hillary_sound_death3.wav */,
-				34101CBD1D5A7A30004143E9 /* hillary_sound_death4.wav */,
+				34101D161D5E4447004143E9 /* hillary_sound_death1.mp3 */,
+				34101D171D5E4447004143E9 /* hillary_sound_death2.mp3 */,
+				34101D181D5E4447004143E9 /* hillary_sound_death3.mp3 */,
+				34101D191D5E4447004143E9 /* hillary_sound_death4.mp3 */,
+				34101D1A1D5E4447004143E9 /* hillary_sound1.mp3 */,
+				34101D1B1D5E4447004143E9 /* hillary_sound2.mp3 */,
+				34101D1C1D5E4447004143E9 /* hillary_sound3.mp3 */,
+				34101D1D1D5E4447004143E9 /* hillary_sound4.mp3 */,
+				34101D1E1D5E4447004143E9 /* hillary_sound5.mp3 */,
+				34101D1F1D5E4447004143E9 /* hillary_sound6.mp3 */,
 			);
 			path = "hillary sounds";
 			sourceTree = "<group>";
@@ -264,18 +260,18 @@
 		34E8F2281D52684F003651F7 /* trump sounds */ = {
 			isa = PBXGroup;
 			children = (
-				34101C881D556AB3004143E9 /* donald_sound_death1.wav */,
-				34101C891D556AB3004143E9 /* donald_sound_death2.wav */,
-				34101C8A1D556AB3004143E9 /* donald_sound_death3.wav */,
-				34101C8B1D556AB3004143E9 /* donald_sound_death4.wav */,
-				34101C8C1D556AB3004143E9 /* donald_sound1.wav */,
-				34101C8D1D556AB3004143E9 /* donald_sound2.wav */,
-				34101C8E1D556AB3004143E9 /* donald_sound3.wav */,
-				34101C8F1D556AB3004143E9 /* donald_sound4.wav */,
-				34101C901D556AB3004143E9 /* donald_sound5.wav */,
-				34101C911D556AB3004143E9 /* donald_sound6.wav */,
-				34101C921D556AB3004143E9 /* donald_sound7.wav */,
-				34101C931D556AB3004143E9 /* donald_sound8.wav */,
+				34101D2A1D5E4455004143E9 /* donald_sound_death1.mp3 */,
+				34101D2B1D5E4455004143E9 /* donald_sound_death2.mp3 */,
+				34101D2C1D5E4455004143E9 /* donald_sound_death3.mp3 */,
+				34101D2D1D5E4455004143E9 /* donald_sound_death4.mp3 */,
+				34101D2E1D5E4455004143E9 /* donald_sound1.mp3 */,
+				34101D2F1D5E4455004143E9 /* donald_sound2.mp3 */,
+				34101D301D5E4455004143E9 /* donald_sound3.mp3 */,
+				34101D311D5E4455004143E9 /* donald_sound4.mp3 */,
+				34101D321D5E4455004143E9 /* donald_sound5.mp3 */,
+				34101D331D5E4455004143E9 /* donald_sound6.mp3 */,
+				34101D341D5E4455004143E9 /* donald_sound7.mp3 */,
+				34101D351D5E4455004143E9 /* donald_sound8.mp3 */,
 			);
 			path = "trump sounds";
 			sourceTree = "<group>";
@@ -396,37 +392,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34101CA51D556AC9004143E9 /* hillary_sound1.wav in Resources */,
-				34101C9C1D556AB3004143E9 /* donald_sound5.wav in Resources */,
-				34101CA81D556AC9004143E9 /* hillary_sound4.wav in Resources */,
-				34E8F2331D52684F003651F7 /* sfx_wing.mp3 in Resources */,
-				34101C9E1D556AB3004143E9 /* donald_sound7.wav in Resources */,
-				34101C961D556AB3004143E9 /* donald_sound_death3.wav in Resources */,
-				34101C951D556AB3004143E9 /* donald_sound_death2.wav in Resources */,
-				34101CC11D5A7A30004143E9 /* hillary_sound_death4.wav in Resources */,
-				34E8F2321D52684F003651F7 /* sfx_swooshing.mp3 in Resources */,
-				34101CB91D5A7A24004143E9 /* hillary_sound6.wav in Resources */,
-				34E8F2311D52684F003651F7 /* hit.mp3 in Resources */,
-				34101C9D1D556AB3004143E9 /* donald_sound6.wav in Resources */,
-				34101C971D556AB3004143E9 /* donald_sound_death4.wav in Resources */,
-				34101CBF1D5A7A30004143E9 /* hillary_sound_death2.wav in Resources */,
+				34101D261D5E4447004143E9 /* hillary_sound3.mp3 in Resources */,
+				34101D151D5E443D004143E9 /* sfx_wing.mp3 in Resources */,
+				34101D281D5E4447004143E9 /* hillary_sound5.mp3 in Resources */,
+				34101D391D5E4455004143E9 /* donald_sound_death4.mp3 in Resources */,
+				34101D141D5E443D004143E9 /* sfx_swooshing.mp3 in Resources */,
+				34101D251D5E4447004143E9 /* hillary_sound2.mp3 in Resources */,
+				34101D401D5E4455004143E9 /* donald_sound7.mp3 in Resources */,
+				34101D3B1D5E4455004143E9 /* donald_sound2.mp3 in Resources */,
+				34101D241D5E4447004143E9 /* hillary_sound1.mp3 in Resources */,
+				34101D131D5E443D004143E9 /* hit.mp3 in Resources */,
+				34101D3F1D5E4455004143E9 /* donald_sound6.mp3 in Resources */,
+				34101D231D5E4447004143E9 /* hillary_sound_death4.mp3 in Resources */,
 				346966261D5262CE0026FDD0 /* GameScene.sks in Resources */,
+				34101D361D5E4455004143E9 /* donald_sound_death1.mp3 in Resources */,
+				34101D371D5E4455004143E9 /* donald_sound_death2.mp3 in Resources */,
+				34101D411D5E4455004143E9 /* donald_sound8.mp3 in Resources */,
+				34101D291D5E4447004143E9 /* hillary_sound6.mp3 in Resources */,
 				348B8F8A1D533C9A000C2360 /* GoogleService-Info.plist in Resources */,
-				34101C9B1D556AB3004143E9 /* donald_sound4.wav in Resources */,
-				34101C9F1D556AB3004143E9 /* donald_sound8.wav in Resources */,
-				34101CA71D556AC9004143E9 /* hillary_sound3.wav in Resources */,
-				34101CA91D556AC9004143E9 /* hillary_sound5.wav in Resources */,
 				346966321D5262CE0026FDD0 /* LaunchScreen.storyboard in Resources */,
 				3469662F1D5262CE0026FDD0 /* Assets.xcassets in Resources */,
-				34101C9A1D556AB3004143E9 /* donald_sound3.wav in Resources */,
-				34101C941D556AB3004143E9 /* donald_sound_death1.wav in Resources */,
-				34101CC01D5A7A30004143E9 /* hillary_sound_death3.wav in Resources */,
+				34101D221D5E4447004143E9 /* hillary_sound_death3.mp3 in Resources */,
+				34101D3E1D5E4455004143E9 /* donald_sound5.mp3 in Resources */,
+				34101D3D1D5E4455004143E9 /* donald_sound4.mp3 in Resources */,
 				3469662D1D5262CE0026FDD0 /* Main.storyboard in Resources */,
-				34101CBE1D5A7A30004143E9 /* hillary_sound_death1.wav in Resources */,
-				34101C991D556AB3004143E9 /* donald_sound2.wav in Resources */,
-				34101CA61D556AC9004143E9 /* hillary_sound2.wav in Resources */,
-				34101C981D556AB3004143E9 /* donald_sound1.wav in Resources */,
-				34E8F2301D52684F003651F7 /* coin.mp3 in Resources */,
+				34101D3A1D5E4455004143E9 /* donald_sound1.mp3 in Resources */,
+				34101D271D5E4447004143E9 /* hillary_sound4.mp3 in Resources */,
+				34101D121D5E443D004143E9 /* coin.mp3 in Resources */,
+				34101D201D5E4447004143E9 /* hillary_sound_death1.mp3 in Resources */,
+				34101D211D5E4447004143E9 /* hillary_sound_death2.mp3 in Resources */,
+				34101D3C1D5E4455004143E9 /* donald_sound3.mp3 in Resources */,
+				34101D381D5E4455004143E9 /* donald_sound_death3.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,9 +677,13 @@
 					Pres,
 					"$(PROJECT_DIR)/Flappy",
 					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
 				);
 				INFOPLIST_FILE = "Flappy Pres/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -712,10 +712,12 @@
 					"\"Accounts\"",
 					"-weak_framework",
 					"\"Social\"",
+					"-w",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flappy-president";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/derekdawson/Documents/flappy bird/Flappy Pres/Flappy Pres/Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -758,9 +760,13 @@
 					Pres,
 					"$(PROJECT_DIR)/Flappy",
 					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
+					"$(PROJECT_DIR)/Flappy",
+					Pres,
 				);
 				INFOPLIST_FILE = "Flappy Pres/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -789,10 +795,12 @@
 					"\"Accounts\"",
 					"-weak_framework",
 					"\"Social\"",
+					"-w",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flappy-president";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/derekdawson/Documents/flappy bird/Flappy Pres/Flappy Pres/Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

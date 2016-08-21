@@ -14,6 +14,9 @@ class GameViewController: UIViewController, GADBannerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIApplication.sharedApplication().idleTimerDisabled = true
+        UIScreen.mainScreen().brightness = 1
+        
         let skView = self.view as! SKView
         
         let menu = MenuScene(size: skView.bounds.size)
@@ -38,7 +41,8 @@ class GameViewController: UIViewController, GADBannerViewDelegate {
         adBannerView.adUnitID = "ca-app-pub-5214892420848108/1396437279"
         let reqAd = GADRequest()
         adBannerView.loadRequest(reqAd)
-        self.view.addSubview(adBannerView)
+        // self.view.addSubview(adBannerView)
+        
         
     }
     

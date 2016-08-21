@@ -8,7 +8,7 @@ import Social
 
 class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
     
-    var jumpAmount:CGFloat = 38
+    var jumpAmount:CGFloat!
     var jumpImpulse:CGFloat!
     
     var bird: SKSpriteNode!
@@ -45,6 +45,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
     
     override func didMoveToView(view: SKView) {
         
+        jumpAmount = 225
         interstitial = createAndLoadInterstitial()
         
         physicsWorld.contactDelegate = self
@@ -78,7 +79,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         
         for i in 1...numNomineeSounds {
             let soundFile = "\(nominee)_sound\(i)"
-            let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(soundFile)", ofType: "wav")!)
+            let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(soundFile)", ofType: "mp3")!)
             let audioPlayer = try! AVAudioPlayer(contentsOfURL: sound)
             audioPlayer.prepareToPlay()
             nomineeSounds.append(audioPlayer)
@@ -88,7 +89,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         if numNomineeDeathSounds > 0 {
             for i in 1...numNomineeDeathSounds {
                 let soundFile = "\(nominee)_sound_death\(i)"
-                let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(soundFile)", ofType: "wav")!)
+                let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(soundFile)", ofType: "mp3")!)
                 let audioPlayer = try! AVAudioPlayer(contentsOfURL: sound)
                 audioPlayer.prepareToPlay()
                 nomineeDeathSound.append(audioPlayer)
@@ -103,13 +104,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         flappySounds.append(createAudioPlayer("hit"))
         flappySounds.append(createAudioPlayer("sfx_wing"))
         
+        
     }
     
     func createScene() {
         
         pause = SKSpriteNode(imageNamed: "pause")
-        pause.size = CGSize(width: 30, height: 30)
-        pause.position = CGPoint(x: 20, y: frame.height - 20)
+        pause.size = CGSize(width: 32, height: 32)
+        pause.position = CGPoint(x: 22, y: frame.height - 22)
         pause.zPosition = 3
         addChild(pause)
         
@@ -139,15 +141,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         
         bird.position = CGPoint(x: frame.width / 2 - bird.frame.width, y: frame.height / 2)
         bird.physicsBody = SKPhysicsBody(rectangleOfSize: bird.size)
+        bird.size = CGSize(width: frame.width * 0.1203125, height: (frame.width * 0.1203125) * 1.2987012987)
         bird.physicsBody?.affectedByGravity = true
         bird.physicsBody?.dynamic = false
         bird.physicsBody?.categoryBitMask = PhysicsCategory.Bird
         bird.physicsBody?.collisionBitMask = PhysicsCategory.Ground | PhysicsCategory.Wall
         bird.physicsBody?.contactTestBitMask = PhysicsCategory.Ground | PhysicsCategory.Wall
+        bird.physicsBody?.mass = 0.5
         bird.zPosition = 4
         bird.name = "bird"
         self.addChild(bird)
-        
+
         ground = SKSpriteNode()
         ground.size = CGSize(width: frame.width, height: bird.frame.height)
         ground.position = CGPoint(x: frame.width / 2, y: ground.frame.height - ground.frame.height / 2)
@@ -168,7 +172,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         scoreLabel.text = "0"
         scoreLabel.fontSize = 40
         scoreLabel.fontName = "AvenirNext-Bold";
-        scoreLabel.position = CGPoint(x: frame.width / 2, y: frame.height - bird.frame.height)
+        scoreLabel.position = CGPoint(x: frame.width / 2, y: frame.height - bird.frame.height - 5)
         scoreLabel.zPosition = 6
         self.addChild(scoreLabel)
         
@@ -357,7 +361,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                 createSocialButtons()
                 bird.physicsBody?.friction = 0.5
                 bird.physicsBody?.restitution = 0.2
-                bird.physicsBody?.applyImpulse(CGVector(dx: CGFloat.random(min: 2, max: 6), dy: CGFloat.random(min: 0.2, max: 3)))
+//                bird.physicsBody?.applyImpulse(CGVector(dx: CGFloat.random(min: 2, max: 6), dy: CGFloat.random(min: 0.2, max: 3)))
                 playFlappyDiedSound()
                 let dieSoundIndex = Int(CGFloat.random(min: 0, max: CGFloat(numNomineeDeathSounds)))
                 dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), {
@@ -413,11 +417,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                 let userDefaults = NSUserDefaults.standardUserDefaults()
                 let num = userDefaults.integerForKey("highscore")
                 if score > num {
-                    print("a - \(score) \(num)")
                     userDefaults.setInteger(score, forKey: "highscore")
                     createHighScoreLabel(score, newScore: true)
                 } else {
-                    print("b - \(score) \(num)")
                     createHighScoreLabel(num, newScore: false)
                 }
                 jumpImpulse = 0
@@ -426,7 +428,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
                         sound.stop()
                     }
                 }
-                if GameViewController.rounds % 5 == 0 {
+                if GameViewController.rounds % 10 == 0 {
                     if interstitial.isReady {
                         interstitial.presentFromRootViewController(self.root)
                     }
@@ -449,7 +451,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
     func createHighScoreLabel(highscore: Int, newScore: Bool) {
         let highScoreLabel = SKLabelNode()
         highScoreLabel.text = "Highscore: \(highscore)"
-        highScoreLabel.fontSize = 28
+        highScoreLabel.fontSize = 29
         highScoreLabel.fontColor = SKColor.whiteColor()
         highScoreLabel.position = CGPoint(x: frame.width / 2, y: frame.height / 2 - 15)
         highScoreLabel.zPosition = 5
@@ -513,7 +515,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, GADInterstitialDelegate {
         interstitial = createAndLoadInterstitial()
     }
     
-    func postToFacebook() {
+    func postToFacebook() { //                https://itunes.apple.com/us/app/flappy-pres/id1139952569?ls=1&mt=8
         let shareToFacebook = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         shareToFacebook.addURL(NSURL(string: "https://itunes.apple.com/us/app/flappy-pres/id1139952569?ls=1&mt=8"))
         root.presentViewController(shareToFacebook, animated: false, completion: nil)

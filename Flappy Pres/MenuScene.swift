@@ -1,6 +1,6 @@
 
 import SpriteKit
-
+import GoogleMobileAds
 
 class MenuScene: SKScene {
     
@@ -26,8 +26,8 @@ class MenuScene: SKScene {
         trump = SKSpriteNode(imageNamed: "big_donald")
         hillary = SKSpriteNode(imageNamed: "big_hillary")
         
-        trump.position = CGPoint(x: frame.width / 4, y: frame.height * 0.5)
-        hillary.position = CGPoint(x: frame.width / 4 * 3, y: frame.height * 0.5)
+        trump.position = CGPoint(x: frame.width / 4, y: frame.height * 0.51)
+        hillary.position = CGPoint(x: frame.width / 4 * 3, y: frame.height * 0.51)
         
         addChild(trump)
         addChild(hillary)
@@ -38,7 +38,7 @@ class MenuScene: SKScene {
         let globalLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
         globalLabel.text = "Global Scores"
         globalLabel.fontColor = SKColor.whiteColor()
-        globalLabel.fontSize = 20
+        globalLabel.fontSize = 21
         globalLabel.position = CGPoint(x: frame.width / 2, y: frame.height * 0.50 + 155)
         globalLabel.zPosition = 2
         addChild(globalLabel)
@@ -65,7 +65,6 @@ class MenuScene: SKScene {
         }
     
         globalLabel.runAction(SKAction.repeatActionForever(SKAction.sequence([wait, run])))
-        
         
     }
     
@@ -123,18 +122,25 @@ class MenuScene: SKScene {
         if redRect == nil {
             return
         }
+        
+        redRect.size = CGSize(width: view!.frame.width * 0.8 * CGFloat(dScorePercent), height: 24)
+        blueRect.size = CGSize(width: view!.frame.width * 0.8 * CGFloat(hScorePercent), height: 24)
         redRect.position = CGPoint(x: frame.width / 2 - (frame.width - redRect.frame.width) / 2 + 10, y: frame.height * 0.49 + 100 + 30)
         blueRect.position = CGPoint(x: frame.width / 2 - (frame.width - blueRect.frame.width) / 2 + 10, y: frame.height * 0.49 + 100)
         
-        let donaldIcon = SKSpriteNode(imageNamed: "small_donald")
-        donaldIcon.size = CGSize(width: redRect.frame.height * 0.8, height: redRect.frame.height * 0.8)
+        let donaldIcon = SKLabelNode(fontNamed: "AvenirNext-Bold")
+        donaldIcon.text = "D"
         donaldIcon.zPosition = 3
-//        redRect.addChild(donaldIcon)
+        donaldIcon.verticalAlignmentMode = .Center
+        donaldIcon.fontSize = 16
+        redRect.addChild(donaldIcon)
         
-        let hillaryIcon = SKSpriteNode(imageNamed: "small_hillary")
-        hillaryIcon.size = CGSize(width: redRect.frame.height * 0.8, height: redRect.frame.height * 0.8)
+        let hillaryIcon = SKLabelNode(fontNamed: "AvenirNext-Bold")
+        hillaryIcon.text = "H"
         hillaryIcon.zPosition = 3
-//        blueRect.addChild(hillaryIcon)
+        hillaryIcon.verticalAlignmentMode = .Center
+        hillaryIcon.fontSize = 16
+        blueRect.addChild(hillaryIcon)
         
         donaldLabel.text = "\(Int(dScore))"
         donaldLabel.position = CGPoint(x: redRect.frame.width + 40, y: frame.height * 0.49 + 100 + 30 - (donaldLabel.frame.height / 2))
